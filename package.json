@@ -1,0 +1,11 @@
+{
+    "name": "CSS Minifier"
+    "subdomain" : "cssminifier",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+        "express": "2.5.5",
+        "stylus": ">= 0.22.4",
+        "jade": ">= 0.20.x"
+    }
+}
