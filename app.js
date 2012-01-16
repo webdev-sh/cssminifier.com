@@ -1,16 +1,24 @@
-
-/**
- * Module dependencies.
- */
+// --------------------------------------------------------------------------------------------------------------------
+// requires
 
 var express = require('express'),
     routes = require('./routes')
 
 var app = module.exports = express.createServer();
 
-// Configuration
+// --------------------------------------------------------------------------------------------------------------------
+// configuration
 
-app.configure(function(){
+app.configure('development', function() {
+    app.use(express.static(__dirname + '/public'));
+});
+
+app.configure('production', function() {
+    var oneMonth = 30 * 24 * 60 * 60 * 1000;
+    app.use(express.static(__dirname + '/public'), { maxAge : oneMonth });
+});
+
+app.configure(function() {
     // set up some templates
     app.set('views', __dirname + '/views');
     app.set('view engine', 'jade');
@@ -23,19 +31,19 @@ app.configure(function(){
     // middleware
     app.use(express.bodyParser());
     // app.use(express.methodOverride()); // don't need this one
-
-    // finally, our router
-    app.use(app.router);
 });
 
-app.configure('development', function(){
+app.configure('development', function() {
     app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 });
 
-app.configure('production', function(){
+app.configure('production', function() {
     app.use(express.errorHandler());
 });
 
+app.use(app.router);
+
+// --------------------------------------------------------------------------------------------------------------------
 // Routes
 
 app.get(  '/',         routes.index    );
@@ -43,5 +51,11 @@ app.post( '/minify',   routes.minify   );
 app.post( '/download', routes.download );
 app.post( '/raw',      routes.raw      );
 
-app.listen(3000);
+// --------------------------------------------------------------------------------------------------------------------
+// start the server
+
+var port = process.argv[2] || 3000;
+app.listen(port);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
+
+// --------------------------------------------------------------------------------------------------------------------
