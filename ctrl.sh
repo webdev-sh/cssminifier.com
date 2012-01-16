@@ -53,7 +53,7 @@ case "$ACTION" in
         if ! lsof -i :3001 > /dev/null; then
             ./node_modules/.bin/forever \
                 -a \
-                -l $PWD/logs/forever.log \
+                -l $PWD/logs/forever-3001.log \
                 -o logs/access.log \
                 -e logs/error.log \
                 start app.js 3001
@@ -64,7 +64,7 @@ case "$ACTION" in
         if ! lsof -i :3002 > /dev/null; then
             ./node_modules/.bin/forever \
                 -a \
-                -l $PWD/logs/forever.log \
+                -l $PWD/logs/forever-3002.log \
                 -o logs/access.log \
                 -e logs/error.log \
                 start app.js 3002
