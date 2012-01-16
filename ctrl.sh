@@ -3,8 +3,8 @@
 
 # environment
 set -e
-. ~/.nvm/nvm.sh
-nvm use 0.6.7
+. $HOME/.nvm/nvm.sh || true
+nvm use v0.6.7
 
 ## --------------------------------------------------------------------------------------------------------------------
 # functions
@@ -24,7 +24,6 @@ function usage() {
 
 # firstly, check there is a command
 if [ $# -lt 1 ]; then
-# if [ -z "$1" ]; then
     usage
     exit
 fi
