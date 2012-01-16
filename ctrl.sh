@@ -18,6 +18,7 @@ function usage() {
     echo "    list         - lists all servers"
     echo "    restart      - restarts all servers"
     echo "    stop         - stops all servers"
+    echo "    tail         - tails all the logs"
 }
 
 ## --------------------------------------------------------------------------------------------------------------------
