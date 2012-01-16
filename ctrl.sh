@@ -4,7 +4,7 @@
 # environment
 set -e
 . $HOME/.nvm/nvm.sh || true
-nvm use v0.6.7
+nvm use v0.6.7 > /dev/null
 
 ## --------------------------------------------------------------------------------------------------------------------
 # functions
@@ -58,8 +58,6 @@ case "$ACTION" in
                 -o logs/access-3001.log \
                 -e logs/error-3001.log \
                 start app.js 3001
-        else
-            echo "Server on 3001 is already listening"
         fi 
 
         if ! lsof -i :3002 > /dev/null; then
@@ -69,8 +67,6 @@ case "$ACTION" in
                 -o logs/access-3002.log \
                 -e logs/error-3002.log \
                 start app.js 3002
-        else
-            echo "Server on 3002 is already listening"
         fi
         ;;
 
