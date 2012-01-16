@@ -1,2 +1,41 @@
-h1= title
-p Welcome to #{title}
+h1 CSS Minifier
+
+div.row
+  div.span8
+    form#input-form.form-stacked(method="post", name="f", action="/minify")
+      fieldset
+        div.clearfix
+          label(for="input") Input CSS
+          div.input
+            textarea#input.span7(name="input",rows="15",wrap="off",autofocus="autofocus")
+
+        div.actions
+          button#minify.btn.primary(type="submit") Minify
+          | 
+          input#clear.btn(type="reset",value="Clear")
+
+  div.span8
+    form#output-form.form-stacked(name="f")
+      fieldset
+        div.clearfix
+          label(for="output") Minified CSS
+          div.input
+            textarea#output.span7(name="output",rows="15",wrap="off",disabled="disabled")
+
+        div.actions
+          button#download.btn(type="button",disabled="disabled") Download as File
+          | 
+          button#raw.btn(type="button",disabled="disabled") RAW
+
+
+div.row
+  div.span16
+    h1 Command Line API
+    h2 With 'curl'
+    p Note: style.css is your input file
+    pre.
+      # minimising some CSS
+      curl -X POST -s --data-urlencode 'input=p { color : red; }' http://localhost:3000/raw
+
+      # minimising a file
+      curl -X POST -s --data-urlencode 'input@style.css' http://localhost:3000/raw > style.min.css
