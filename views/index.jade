@@ -1,5 +1,3 @@
-h1 CSS Minifier
-
 div.row
   div.span8
     form#input-form.form-stacked(method="post", name="f", action="/minify")
@@ -27,15 +25,26 @@ div.row
           | 
           button#raw.btn(type="button",disabled="disabled") RAW
 
+h1 API
 
-div.row
-  div.span16
-    h1 Command Line API
-    h2 With 'curl'
-    p Note: style.css is your input file
-    pre.
-      # minimising some CSS
-      curl -X POST -s --data-urlencode 'input=p { color : red; }' http://localhost:3000/raw
+h2 General
+  p.
+    Perform a POST request to <code>http://cssminifier.com/raw</code> with the <code>input</code> parameter set to
+    the CSS you want to minify.
+  pre.
+    POST http://cssminifier.com/raw?input=...
+h2 Curl
+pre.
+  # minimising some CSS
+  curl -X POST -s --data-urlencode 'input=p { color : red; }' http://cssminifier.com/raw
 
-      # minimising a file
-      curl -X POST -s --data-urlencode 'input@style.css' http://localhost:3000/raw > style.min.css
+  # minimising a CSS file (e.g. style.css -> style.min.css)
+  curl -X POST -s --data-urlencode 'input@style.css' http://cssminifier.com/raw > style.min.css
+h2 LWP Request
+  pre.
+    $ lwp-request -m POST http://cssminifier.com/raw
+    Please enter content (application/x-www-form-urlencoded) to be POSTed:
+    input=p%20{%20color:%20white;%20}
+    ^D
+p Send me more examples in your programming language.
+p (Ends)
