@@ -54,8 +54,8 @@ case "$ACTION" in
             ./node_modules/.bin/forever \
                 -a \
                 -l $PWD/logs/forever-3001.log \
-                -o logs/access.log \
-                -e logs/error.log \
+                -o logs/access-3001.log \
+                -e logs/error-3001.log \
                 start app.js 3001
         else
             echo "Server on 3001 is already listening"
@@ -65,8 +65,8 @@ case "$ACTION" in
             ./node_modules/.bin/forever \
                 -a \
                 -l $PWD/logs/forever-3002.log \
-                -o logs/access.log \
-                -e logs/error.log \
+                -o logs/access-3002.log \
+                -e logs/error-3002.log \
                 start app.js 3002
         else
             echo "Server on 3002 is already listening"
@@ -79,6 +79,10 @@ case "$ACTION" in
 
     stop)
         ./node_modules/.bin/forever stop app.js
+        ;;
+
+    tail)
+        tail -f logs/*.log
         ;;
 
     *)
