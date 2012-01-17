@@ -3,26 +3,23 @@
     "description" : "Minify your CSS",
     "private" : true,
     "version" : "0.1.0",
-    "author" : {
-        "name"  : "Andrew Chilton",
-        "email" : "chilts@appsattic.com",
-        "url"   : "http://www.chilts.org/"
-    },
-    "homepage" : "https://github.com/appsattic/site-cssminifier/",
     "dependencies" : {
         "forever" : ">= 0.8.4",
         "express" : "2.5.5",
         "stylus" : ">= 0.22.4",
         "jade" : ">= 0.20.x"
     },
+    "author" : {
+        "name"  : "Andrew Chilton",
+        "email" : "chilts@appsattic.com",
+        "url"   : "http://www.chilts.org/"
+    },
+    "homepage" : "https://github.com/appsattic/site-cssminifier/",
     "repository" : {
         "type" : "git",
         "url"  : "git://github.com/appsattic/site-cssminifier.git"
     },
    "bugs" : {
         "url" : "http://github.com/appsattic/site-cssminifier/issues"
-    },
-    "scripts" : {
-        "start" : "app.js"
     }
 }
