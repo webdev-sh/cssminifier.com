@@ -27,8 +27,6 @@ app.use(function(req, res, next) {
 
 app.configure('development', function() {
     app.use(express.static(__dirname + '/public'));
-    // so we can read the HTML better
-    app.set('view options', { pretty: true })
 });
 
 app.configure('production', function() {
