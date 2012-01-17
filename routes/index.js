@@ -6,12 +6,12 @@ var yahoo = require('../lib/cssmin.js');
 // pages
 
 exports.index = function(req, res) {
-    res.render('index', { title: 'Express' })
+    res.render('index', { title: 'CSS Minifier' })
 };
 
 exports.minify = function(req, res) {
     var minimised = yahoo.compressor.cssmin(req.body.input);
-    res.render('index', { title: 'Express', input : req.body.input, output : minimised })
+    res.render('index', { title: 'CSS Minifier', input : req.body.input, output : minimised })
 };
 
 // from a post, outputs the text and the text only (with a download header)
