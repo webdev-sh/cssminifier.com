@@ -46,7 +46,9 @@ case "$ACTION" in
 
         # Nginx
         sudo cp sys/etc/nginx/sites-available/site-cssminifier /etc/nginx/sites-available/
-        sudo ln -s /etc/nginx/sites-available/site-cssminifier /etc/nginx/sites-enabled/site-cssminifier
+        if [ ! -e /etc/nginx/sites-enabled/site-cssminifier ]; then
+            sudo ln -s /etc/nginx/sites-available/site-cssminifier /etc/nginx/sites-enabled/site-cssminifier
+        fi
         sudo /etc/init.d/nginx restart
         ;;
 
