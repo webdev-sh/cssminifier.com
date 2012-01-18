@@ -7,13 +7,6 @@ upstream cssminifier {
 server {
     listen 80;
     server_name cssminifier.com;
-    server_name www.cssminifier.com;
-
-    # redirect to the naked domain
-    if ( $host ~* www\.(.*) ) {
-        set $naked_domain $1;
-        rewrite ^/(.*)$ http://$naked_domain/$1 permanent;
-    }
 
     # proxy everything to node
     location / {
@@ -24,6 +17,12 @@ server {
     }
 
     # logfiles
-    access_log /var/log/nginx/$host-access.log main;
-    error_log  /var/log/nginx/$host-error.log info;
+    access_log /var/log/nginx/cssminifier.access.log;
+    error_log  /var/log/nginx/cssminifier.error.log error;
+}
+
+server {
+    listen 80;
+    server_name www.cssminifier.com;
+    rewrite ^/(.*) http://cssminifier/$1 permanent;
 }
