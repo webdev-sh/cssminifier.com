@@ -4,6 +4,7 @@ upstream cssminifier {
     server 127.0.0.1:3002;
 }
 
+# main server
 server {
     listen 80;
     server_name cssminifier.com;
@@ -21,6 +22,7 @@ server {
     error_log  /var/log/nginx/cssminifier.error.log error;
 }
 
+# redirect the www version to the non-www version
 server {
     listen 80;
     server_name www.cssminifier.com;
