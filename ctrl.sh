@@ -43,6 +43,11 @@ case "$ACTION" in
     initialise)
         # install all the npm stuff we need
         npm -d install
+
+        # Nginx
+        sudo cp sys/etc/nginx/sites-available/site-cssminifier.conf /etc/nginx/sites-available/
+        sudo ln -s /etc/nginx/sites-available/site-cssminifier.conf /etc/nginx/sites-enabled/site-cssminifier.conf
+        sudo /etc/init.d/nginx restart
         ;;
 
     list)

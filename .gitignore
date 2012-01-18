@@ -1,5 +1,6 @@
 htdocs/s/css/style.css
-node_modules
+non-git/
+node_modules/
 npm-debug.log
 logs/*.log
 *~

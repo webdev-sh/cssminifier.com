@@ -18,22 +18,6 @@ var app = module.exports = express.createServer();
 // --------------------------------------------------------------------------------------------------------------------
 // configuration
 
-// prefer non-www
-app.use(function(req, res, next) {
-    var host = (req.headers.host || '').replace(/^www\./, '');
-    if ( host === req.headers.host ) {
-        return next();
-    }
-
-    var href = 'http://' + host + req.url;
-
-    // redirect to the non-www version
-    res.statusCode = 302;
-    res.setHeader('Location', href);
-    res.write( '<p>Redirecting to <a href="' + href + '">' + href + '</a></p>\n' );
-    res.end();
-});
-
 app.configure('development', function() {
     app.use(express.static(__dirname + '/public'));
 });
