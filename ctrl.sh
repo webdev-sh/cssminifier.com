@@ -45,8 +45,8 @@ case "$ACTION" in
         npm -d install
 
         # Nginx
-        sudo cp sys/etc/nginx/sites-available/site-cssminifier.conf /etc/nginx/sites-available/
-        sudo ln -s /etc/nginx/sites-available/site-cssminifier.conf /etc/nginx/sites-enabled/site-cssminifier.conf
+        sudo cp sys/etc/nginx/sites-available/site-cssminifier /etc/nginx/sites-available/
+        sudo ln -s /etc/nginx/sites-available/site-cssminifier /etc/nginx/sites-enabled/site-cssminifier
         sudo /etc/init.d/nginx restart
         ;;
 
