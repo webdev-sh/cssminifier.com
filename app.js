@@ -14,6 +14,7 @@ var express = require('express'),
     routes = require('./lib/routes.js')
 
 var app = module.exports = express.createServer();
+var log = require('./lib/log.js');
 
 // --------------------------------------------------------------------------------------------------------------------
 // configuration
@@ -65,6 +66,7 @@ app.post( '/raw',      routes.raw      );
 
 var port = process.argv[2] || 3000;
 app.listen(port);
-console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
+log.all('====================================================');
+log.all('Started');
 
 // --------------------------------------------------------------------------------------------------------------------
