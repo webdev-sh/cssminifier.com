@@ -20,12 +20,12 @@ var log = require('./lib/log.js');
 // configuration
 
 app.configure('development', function() {
-    app.use(express.static(__dirname + '/public'));
+    app.use(express.static(__dirname + '/htdocs'));
 });
 
 app.configure('production', function() {
     var oneMonth = 30 * 24 * 60 * 60 * 1000;
-    app.use(express.static(__dirname + '/public'), { maxAge : oneMonth });
+    app.use(express.static(__dirname + '/htdocs'), { maxAge : oneMonth });
 });
 
 app.configure(function() {
@@ -36,7 +36,6 @@ app.configure(function() {
     // do all static routes first (but making sure the CSS is generated)
     app.use(express.favicon(__dirname + '/htdocs/favicon.ico'));
     app.use(require('stylus').middleware({ src: __dirname + '/htdocs' }));
-    app.use(express.static(__dirname + '/htdocs'));
 
     // middleware
     app.use(express.bodyParser());
