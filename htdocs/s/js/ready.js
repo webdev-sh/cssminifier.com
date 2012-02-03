@@ -21,12 +21,8 @@ $(function() {
         var input = $input.val();
         $.post( '/raw', { input : input }, function(data) {
             if ( data ) {
-                console.log('ok : ' + data);
                 $output.val(data);
                 $output.removeAttr('disabled');
-            }
-            else {
-                console.log('fail');
             }
         });
     }
@@ -47,9 +43,7 @@ $(function() {
 
     $('#download').click(function() {
         $form.attr('action', '/download').submit();
-        console.log('here');
         minify();
-        console.log('there');
         return false;
     });
 
