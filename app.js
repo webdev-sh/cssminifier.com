@@ -63,7 +63,7 @@ app.post( '/raw',      routes.raw      );
 // --------------------------------------------------------------------------------------------------------------------
 // start the server
 
-var port = process.argv[2] || 3000;
+var port = process.env.PORT;
 app.listen(port);
 log.all('====================================================');
 log.all('Started');
