@@ -1,25 +1,34 @@
 {
-    "name" : "cssminifier",
+    "name" : "cssminifier-com",
     "description" : "Minify your CSS",
-    "private" : true,
     "version" : "0.1.0",
+    "private" : true,
     "dependencies" : {
-        "forever" : ">= 0.8.4",
         "express" : "2.5.5",
         "stylus" : ">= 0.22.4",
         "jade" : ">= 0.20.x"
     },
+    "main": "app.js",
     "author" : {
         "name"  : "Andrew Chilton",
         "email" : "chilts@appsattic.com",
-        "url"   : "http://www.chilts.org/"
+        "url"   : "http://chilts.org/blog/"
     },
-    "homepage" : "https://github.com/appsattic/site-cssminifier/",
+    "homepage" : "https://github.com/appsattic/cssminifier-com/",
     "repository" : {
         "type" : "git",
-        "url"  : "git://github.com/appsattic/site-cssminifier.git"
+        "url"  : "git://github.com/appsattic/cssminifier-com.git"
     },
    "bugs" : {
-        "url" : "http://github.com/appsattic/site-cssminifier/issues"
-    }
+        "url" : "http://github.com/appsattic/cssminifier-com/issues"
+    },
+    "engines" : {
+        "node" : "0.8.8",
+        "npm"  : "1.1.x"
+    },
+    "scripts": {
+        "start" : "node app.js",
+        "test"  : "tap test/*.js"
+    },
+    "license": "All Rights Reserved"
 }
