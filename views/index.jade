@@ -34,13 +34,13 @@ h2 General
 h2 Curl
 pre.
   # minimising some CSS
-  curl -X POST -s --data-urlencode 'input=p { color : red; }' http://cssminifier.com/raw
+  curl -X POST -s --data-urlencode 'input=p { color : red; }' http://www.cssminifier.com/raw
 
   # minimising a CSS file (e.g. style.css -> style.min.css)
-  curl -X POST -s --data-urlencode 'input@style.css' http://cssminifier.com/raw > style.min.css
+  curl -X POST -s --data-urlencode 'input@style.css' http://www.cssminifier.com/raw > style.min.css
 h2 LWP Request
   pre.
-    $ lwp-request -m POST http://cssminifier.com/raw
+    $ lwp-request -m POST http://www.cssminifier.com/raw
     Please enter content (application/x-www-form-urlencoded) to be POSTed:
     input=p%20{%20color:%20white;%20}
     ^D
