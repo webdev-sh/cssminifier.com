@@ -14,6 +14,10 @@ echo "Installing new npm packages ..."
 npm install
 echo
 
+# minimising assets
+# ToDo: js-min.pl public/s/js/ready.js > public/s/js/ready.min.js
+# ToDo: curl -X POST -s --data-urlencode 'input@public/s/css/style.css' http://cssminifier.com/raw > public/s/css/style.min.css
+
 # set up Nginx
 echo "Setting up Nginx ..."
 sudo cp etc/nginx/sites-available/cssminifier-com /etc/nginx/sites-available/

@@ -28,6 +28,18 @@ process.title = 'cssminifier.com:' + port;
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 
+app.use(function(req, res, next) {
+    if ( env.NODE_ENV === 'production') {
+        res.locals.min = '.min';
+    }
+    else {
+        app.locals.pretty = true;
+        res.locals.min = '';
+    }
+
+    next();
+});
+
 // do all static routes first
 app.use(express.favicon(__dirname + '/htdocs/favicon.ico'));
 
