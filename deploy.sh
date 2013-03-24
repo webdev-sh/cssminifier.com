@@ -1,6 +1,12 @@
 #!/bin/bash
 ## --------------------------------------------------------------------------------------------------------------------
 
+set -e
+
+# install any required packages
+git fetch
+git rebase origin/master
+
 # install any required packages
 npm install
 
