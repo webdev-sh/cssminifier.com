@@ -11,8 +11,12 @@ block content
             div.input
               textarea#input.span6(name="input",rows="15",wrap="off",autofocus="autofocus")
           div.actions
-            button#minify.btn.primary(type="submit") Minify
-            | 
+            button#minify.btn.btn-primary(type="submit") Minify
+            |  
+            button#download.btn(type="button",disabled="disabled") Download as File
+            |  
+            button#raw.btn(type="button",disabled="disabled") RAW
+            |  
             input#clear.btn(type="reset",value="Clear")
 
     div.span6
@@ -22,11 +26,9 @@ block content
           div.clearfix
             label(for="output") Minified CSS
             div.input
-              textarea#output.span6(name="output",rows="15",wrap="off",disabled="disabled")
+              textarea#output.span6(name="output",rows="15",wrap="soft",disabled="disabled")
           div.actions
-            button#download.btn(type="button",disabled="disabled") Download as File
-            | 
-            button#raw.btn(type="button",disabled="disabled") RAW
+            button#select.btn(type="button",disabled="disabled") Select All
 
   h2.muted API
 

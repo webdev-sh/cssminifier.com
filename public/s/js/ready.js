@@ -1,18 +1,35 @@
 $(function() {
 
+    var state = 'blank';
+
     // set some vars for use
-    var $form   = $('#input-form');
-    var $input  = $('#input');
-    var $output = $('#output');
+    var $form    = $('#input-form');
+    var $input   = $('#input');
+    var $output  = $('#output');
+    var $buttons = $('#minify, #download, #raw, #clear');
+
+    var $btnSelect = $('#select');
 
     function set_states() {
         var $input = $('#input');
+
+        if ( state === 'blank' && $input.val().length > 0 ) {
+            state = 'input';
+        }
+
         if ( $input.val().length > 0 ) {
-            $('#raw, #download, #minify, #clear').removeAttr('disabled');
+            $buttons.removeAttr('disabled');
+        }
+        else {
+            $buttons.attr('disabled', 'disabled');
+        }
+
+        if ( $output.val().length ) {
+            $btnSelect.removeAttr('disabled');
             $output.removeAttr('disabled');
         }
         else {
-            $('#raw, #download, #minify, #clear').attr('disabled', 'disabled');
+            $btnSelect.attr('disabled', 'disabled');
             $output.attr('disabled', 'disabled');
         }
     }
@@ -22,7 +39,8 @@ $(function() {
         $.post( '/raw', { input : input }, function(data) {
             if ( data ) {
                 $output.val(data);
-                $output.removeAttr('disabled');
+                set_states();
+                $output.select();
             }
         });
     }
@@ -36,26 +54,31 @@ $(function() {
     $input.keydown( set_states );
 
     // events on the buttons
-    $('#minify').click(function() {
+    $('#minify').click(function(ev) {
+        ev.preventDefault();
         minify();
-        return false;
     });
 
-    $('#download').click(function() {
+    $('#download').click(function(ev) {
         $form.attr('action', '/download').submit();
         minify();
-        return false;
     });
 
-    $('#raw').click(function() {
+    $('#raw').click(function(ev) {
+        ev.preventDefault();
         $form.attr('action', '/raw').submit();
-        return true;
     });
 
-    $('#clear').click(function() {
+    $('#clear').click(function(ev) {
+        ev.preventDefault();
         $input.val('');
+        $output.val('');
         set_states();
         $input.focus();
-        return false;
+        $output.attr('disabled', 'disabled');
+    });
+
+    $('#select').click(function(ev) {
+        $output.select();
     });
 });
