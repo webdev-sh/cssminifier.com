@@ -1,0 +1,29 @@
+# Set up the load balancer.
+upstream lb {
+    server localhost:8011;
+    server localhost:8012;
+}
+
+# Proxy through the main site to the backend Node.js processes.
+server {
+
+    server_name cssminifier.com;
+    listen 80;
+
+    access_log /var/log/nginx/cssminifier-com.access.log;
+    error_log  /var/log/nginx/cssminifier-com.error.log;
+
+    location / {
+        proxy_pass  http://lb;
+    }
+}
+
+# Redirect the www (and typos) versions to the naked domain.
+server {
+
+    server_name www.cssminifier.com ww.cssminifier.com w.cssminifier.com;
+    listen 80;
+
+    rewrite ^ http://hex.gd$uri permanent;
+
+}

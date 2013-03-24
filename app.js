@@ -20,6 +20,7 @@ var env = process.env;
 
 var app = express();
 var port = parseInt(process.argv[2], 10) || 3000;
+process.title = 'cssminifier.com:' + port;
 
 // --------------------------------------------------------------------------------------------------------------------
 
