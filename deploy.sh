@@ -12,7 +12,9 @@ npm install
 
 # set up Nginx
 sudo cp etc/nginx/sites-available/cssminifier-com /etc/nginx/sites-available/
-sudo ln -s /etc/nginx/sites-available/cssminifier-com /etc/nginx/sites-enabled/
+if [ ! -h /etc/nginx/sites-enabled/cssminifier-com ]; then
+    sudo ln -s /etc/nginx/sites-available/cssminifier-com /etc/nginx/sites-enabled/
+fi
 sudo service nginx reload
 
 # set up the servers
