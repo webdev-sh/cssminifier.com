@@ -1,5 +1,5 @@
 # Set up the load balancer.
-upstream lb {
+upstream css-minifier-lb {
     server localhost:8011;
     server localhost:8012;
 }
@@ -14,7 +14,7 @@ server {
     error_log  /var/log/nginx/cssminifier-com.error.log;
 
     location / {
-        proxy_pass  http://lb;
+        proxy_pass  http://css-minifier-lb;
     }
 }
 
