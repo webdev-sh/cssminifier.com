@@ -1,7 +1,24 @@
+// ----------------------------------------------------------------------------
+//
+// History
+//
 // Git     : http://github.com/yui/yuicompressor/
 // From    : https://raw.github.com/yui/yuicompressor/master/ports/js/cssmin.js
-// Age     : 27 September 2011
+// Changed : 23 March 2013
+// Fetched : 24 March 2013
+//
+// Git     : http://github.com/yui/yuicompressor/
+// From    : https://raw.github.com/yui/yuicompressor/master/ports/js/cssmin.js
+// Changed : 27 September 2011
 // Fetched : 14 Jan 2012
+//
+// ----------------------------------------------------------------------------
+//
+// Other Modifications
+//
+// We need this module.exports, so that the YAHOO object is exported in Node.js.
+//
+// ----------------------------------------------------------------------------
 
 /**
  * cssmin.js
@@ -315,8 +332,20 @@ YAHOO.compressor.cssmin = function (css, linebreakpos) {
     // Shorten colors from #AABBCC to #ABC.
     css = this._compressHexColors(css);
 
+    // Shorten color from #f00 to red
+    css = css.replace(/(:|\s)(#f00)(;|})/g, "$1red$3");
+    // Other colors
+    css = css.replace(/(:|\s)(#000080)(;|})/g, "$1navy$3");
+    css = css.replace(/(:|\s)(#808080)(;|})/g, "$1gray$3");
+    css = css.replace(/(:|\s)(#808000)(;|})/g, "$1olive$3");
+    css = css.replace(/(:|\s)(#800080)(;|})/g, "$1purple$3");
+    css = css.replace(/(:|\s)(#c0c0c0)(;|})/g, "$1silver$3");
+    css = css.replace(/(:|\s)(#008080)(;|})/g, "$1teal$3");
+    css = css.replace(/(:|\s)(#ffa500)(;|})/g, "$1orange$3");
+    css = css.replace(/(:|\s)(#800000)(;|})/g, "$1maroon$3");
+
     // border: none -> border:0
-    css = css.replace(/(border|border-top|border-right|border-bottom|border-right|outline|background):none(;|\})/gi, function(all, prop, tail) {
+    css = css.replace(/(border|border-top|border-right|border-bottom|border-left|outline|background):none(;|\})/gi, function(all, prop, tail) {
         return prop.toLowerCase() + ":0" + tail;
     });
 
@@ -357,4 +386,8 @@ YAHOO.compressor.cssmin = function (css, linebreakpos) {
 
 };
 
+// ----------------------------------------------------------------------------
+
 module.exports = YAHOO;
+
+// ----------------------------------------------------------------------------
