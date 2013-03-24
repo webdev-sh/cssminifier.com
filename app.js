@@ -38,6 +38,8 @@ else {
     app.use(express.static(__dirname + '/public/'));
 }
 
+app.use(express.logger());
+
 // middleware
 app.use(express.bodyParser());
 
