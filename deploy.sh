@@ -5,7 +5,7 @@
 npm install
 
 # set up Nginx
-sudo cp etc/nginx/sites-enabled/cssminifier-com /etc/nginx/sites-enabled/
+sudo cp etc/nginx/sites-available/cssminifier-com /etc/nginx/sites-available/
 sudo ln -s /etc/nginx/sites-available/cssminifier-com /etc/nginx/sites-enabled/
 sudo service nginx reload
 
