@@ -1,48 +1,57 @@
-div.row
-  div.span8
-    form#input-form.form-stacked(method="post", name="f", action="/minify")
-      fieldset
-        div.clearfix
-          label(for="input") Input CSS
-          div.input
-            textarea#input.span7(name="input",rows="15",wrap="off",autofocus="autofocus")
-        div.actions
-          button#minify.btn.primary(type="submit") Minify
-          | 
-          input#clear.btn(type="reset",value="Clear")
+extends layout
 
-  div.span8
-    form#output-form.form-stacked(name="f")
-      fieldset
-        div.clearfix
-          label(for="output") Minified CSS
-          div.input
-            textarea#output.span7(name="output",rows="15",wrap="off",disabled="disabled")
-        div.actions
-          button#download.btn(type="button",disabled="disabled") Download as File
-          | 
-          button#raw.btn(type="button",disabled="disabled") RAW
+block content
+  div.row
+    div.span6
+      h4.muted Input
+      form#input-form.form-stacked(method="post", name="f", action="/minify")
+        fieldset
+          div.clearfix
+            label(for="input") Input CSS
+            div.input
+              textarea#input.span6(name="input",rows="15",wrap="off",autofocus="autofocus")
+          div.actions
+            button#minify.btn.primary(type="submit") Minify
+            | 
+            input#clear.btn(type="reset",value="Clear")
 
-h1 API
+    div.span6
+      h4.muted Output
+      form#output-form.form-stacked(name="f")
+        fieldset
+          div.clearfix
+            label(for="output") Minified CSS
+            div.input
+              textarea#output.span6(name="output",rows="15",wrap="off",disabled="disabled")
+          div.actions
+            button#download.btn(type="button",disabled="disabled") Download as File
+            | 
+            button#raw.btn(type="button",disabled="disabled") RAW
 
-h2 General
+  h2.muted API
+
+  h3.muted General
   p.
     Perform a POST request to <code>http://cssminifier.com/raw</code> with the <code>input</code> parameter set to
     the CSS you want to minify.
   pre.
     POST http://cssminifier.com/raw?input=...
-h2 Curl
-pre.
-  # minimising some CSS
-  curl -X POST -s --data-urlencode 'input=p { color : red; }' http://www.cssminifier.com/raw
 
-  # minimising a CSS file (e.g. style.css -> style.min.css)
-  curl -X POST -s --data-urlencode 'input@style.css' http://www.cssminifier.com/raw > style.min.css
-h2 LWP Request
+  h3.muted Curl
+  pre.
+    # minimising some CSS
+    curl -X POST -s --data-urlencode 'input=p { color : red; }' http://www.cssminifier.com/raw
+
+    # minimising a CSS file (e.g. style.css -> style.min.css)
+    curl -X POST -s --data-urlencode 'input@style.css' http://www.cssminifier.com/raw > style.min.css
+
+  h3.muted LWP Request
   pre.
     $ lwp-request -m POST http://www.cssminifier.com/raw
     Please enter content (application/x-www-form-urlencoded) to be POSTed:
     input=p%20{%20color:%20white;%20}
     ^D
-p Send me more examples in your programming language.
-p (Ends)
+
+  p Send me more examples in your programming language.
+
+  p (Ends)

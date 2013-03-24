@@ -1,13 +1,14 @@
 {
     "name" : "cssminifier-com",
     "description" : "Minify your CSS",
-    "version" : "0.1.0",
+    "version" : "0.2.0",
     "private" : true,
+
     "dependencies" : {
-        "express" : "2.5.5",
-        "stylus" : ">= 0.22.4",
-        "jade" : ">= 0.20.x"
+        "express" : "3.x",
+        "jade"    : "0.28.x"
     },
+
     "main": "app.js",
     "author" : {
         "name"  : "Andrew Chilton",
@@ -22,13 +23,11 @@
    "bugs" : {
         "url" : "http://github.com/appsattic/cssminifier-com/issues"
     },
-    "engines" : {
-        "node" : "0.8.8",
-        "npm"  : "1.1.x"
-    },
+
     "scripts": {
         "start" : "node app.js",
         "test"  : "tap test/*.js"
     },
-    "license": "All Rights Reserved"
+
+    "license": "Copyright 2012-2013 Apps Attic Lts. All Rights Reserved."
 }

@@ -2,55 +2,51 @@
 //
 // app.js - the main server for cssminifier.com
 //
-// Copyright (c) 2012 AppsAttic Ltd - http://www.appsattic.com/
-// Written by Andrew Chilton <chilts@appsattic.com>
+// Copyright (c) 2012-2013 AppsAttic Ltd - http://www.appsattic.com/
 //
 // --------------------------------------------------------------------------------------------------------------------
 
-// --------------------------------------------------------------------------------------------------------------------
-// requires
+var http = require('http');
 
 var express = require('express'),
     routes = require('./lib/routes.js')
 
-var app = module.exports = express.createServer();
 var log = require('./lib/log.js');
 
 // --------------------------------------------------------------------------------------------------------------------
-// configuration
+// application server
 
-app.configure('development', function() {
-    app.use(express.static(__dirname + '/htdocs'));
-});
+var env = process.env;
 
-app.configure('production', function() {
+var app = express();
+var port = parseInt(process.argv[2], 10) || 3000;
+
+// --------------------------------------------------------------------------------------------------------------------
+
+// some app settings
+app.set('views', __dirname + '/views');
+app.set('view engine', 'jade');
+
+// do all static routes first
+app.use(express.favicon(__dirname + '/htdocs/favicon.ico'));
+
+if ( process.env.NODE_ENV === 'production' ) {
     var oneMonth = 30 * 24 * 60 * 60 * 1000;
-    app.use(express.static(__dirname + '/htdocs'), { maxAge : oneMonth });
-});
+    app.use(express.static(__dirname + '/public/'), { maxAge : oneMonth });
+}
+else {
+    app.use(express.static(__dirname + '/public/'));
+}
 
-app.configure(function() {
-    // set up some templates
-    app.set('views', __dirname + '/views');
-    app.set('view engine', 'jade');
+// middleware
+app.use(express.bodyParser());
 
-    // do all static routes first (but making sure the CSS is generated)
-    app.use(express.favicon(__dirname + '/htdocs/favicon.ico'));
-    app.use(require('stylus').middleware({ src: __dirname + '/htdocs' }));
-
-    // middleware
-    app.use(express.bodyParser());
-    // app.use(express.methodOverride()); // don't need this one
-});
-
-app.configure('development', function() {
-    app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
-});
-
-app.configure('production', function() {
+if ( process.env.NODE_ENV === 'production' ) {
     app.use(express.errorHandler());
-});
-
-app.use(app.router);
+}
+else {
+    app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
+}
 
 // --------------------------------------------------------------------------------------------------------------------
 // Routes
@@ -60,12 +56,16 @@ app.post( '/minify',   routes.minify   );
 app.post( '/download', routes.download );
 app.post( '/raw',      routes.raw      );
 
+app.use(app.router);
+
 // --------------------------------------------------------------------------------------------------------------------
 // start the server
 
-var port = process.env.PORT;
-app.listen(port);
-log.all('====================================================');
-log.all('Started');
+var server = http.createServer(app);
+
+server.listen(port, function() {
+    log.line();
+    log('Started, listening on port ' + port);
+});
 
 // --------------------------------------------------------------------------------------------------------------------
