@@ -26,8 +26,8 @@ sudo cp etc/init/cssminifier-com-1.conf /etc/init/
 sudo cp etc/init/cssminifier-com-2.conf /etc/init/
 
 # restart the services, with a sleep in between
-sudo service cssminifier-com-web-1 restart
+sudo service cssminifier-com-1 restart
 sleep 10
-sudo service cssminifier-com-web-2 restart
+sudo service cssminifier-com-2 restart
 
 ## --------------------------------------------------------------------------------------------------------------------
