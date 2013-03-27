@@ -23,14 +23,18 @@ html
 
     div#main.container
       div#ads.row
-        div.span6
+        div.span4
           h3.muted Our other services:
           a.btn.btn-primary(href="/") CSS Minifier
-        div.span6.c
-          img(src="http://placehold.it/120x90",width="120",height="90")
-          img(src="http://placehold.it/120x90",width="120",height="90")
-          img(src="http://placehold.it/120x90",width="120",height="90")
-          img(src="http://placehold.it/120x90",width="120",height="90")
+        div.span8.c
+          script
+            amazon_ad_tag = "csmi02-20";
+            amazon_ad_width = "728";
+            amazon_ad_height = "90";
+            amazon_ad_logo = "hide";
+            amazon_ad_border = "hide";
+            amazon_color_border = "FFFFFF";
+          script(src="http://www.assoc-amazon.com/s/ads.js")
 
       block content
 
