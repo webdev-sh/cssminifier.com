@@ -24,6 +24,6 @@ server {
     server_name www.cssminifier.com ww.cssminifier.com w.cssminifier.com;
     listen 80;
 
-    rewrite ^ http://hex.gd$uri permanent;
+    rewrite ^ http://cssminifier.com$uri permanent;
 
 }
