@@ -63,10 +63,21 @@ else {
     app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 }
 
+function headers(req, res, next) {
+    res.setHeader('X-Made-By', 'http://appsattic.com/');
+    // From: http://blog.netdna.com/opensource/bootstrapcdn/accept-encoding-its-vary-important/
+    res.setHeader('Vary', 'Accept-Encoding');
+    next();
+}
+
 // --------------------------------------------------------------------------------------------------------------------
 // Routes
 
-app.get(  '/',         routes.index    );
+app.get(
+    '/',
+    headers,
+    routes.index
+);
 
 app.get(  '/minify',   routes.redirectToHome );
 app.post( '/minify',   routes.minify   );
