@@ -67,8 +67,14 @@ else {
 // Routes
 
 app.get(  '/',         routes.index    );
+
+app.get(  '/minify',   routes.redirectToHome );
 app.post( '/minify',   routes.minify   );
+
+app.get(  '/download', routes.redirectToHome );
 app.post( '/download', routes.download );
+
+app.get(  '/raw',      routes.redirectToHome );
 app.post( '/raw',      routes.raw      );
 
 app.use(app.router);
