@@ -1,5 +1,5 @@
-non-git/
+public/s/css/style.min.css
+public/s/js/ready.min.js
 node_modules/
 npm-debug.log
-logs/*.log
 *~
