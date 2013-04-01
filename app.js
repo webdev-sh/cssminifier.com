@@ -88,6 +88,8 @@ app.post( '/download', routes.download );
 app.get(  '/raw',      routes.redirectToHome );
 app.post( '/raw',      routes.raw      );
 
+app.get(  '/sitemap.txt',  routes.sitemap );
+
 app.use(app.router);
 
 // --------------------------------------------------------------------------------------------------------------------
