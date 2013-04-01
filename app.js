@@ -90,6 +90,9 @@ app.post( '/raw',      routes.raw      );
 
 app.get(  '/sitemap.txt',  routes.sitemap );
 
+// these links were shown as being linked to in Google Webmasters, but are 404's, so redirect to the homepage
+app.get(  '/,',        routes.redirectToHome );
+
 app.use(app.router);
 
 // --------------------------------------------------------------------------------------------------------------------
