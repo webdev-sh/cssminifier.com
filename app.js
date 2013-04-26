@@ -41,7 +41,7 @@ app.use(function(req, res, next) {
 });
 
 // do all static routes first
-app.use(express.favicon(__dirname + '/htdocs/favicon.ico'));
+app.use(express.favicon(__dirname + '/public/favicon.ico'));
 
 if ( process.env.NODE_ENV === 'production' ) {
     var oneMonth = 30 * 24 * 60 * 60 * 1000;
