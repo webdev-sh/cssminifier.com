@@ -28,13 +28,9 @@ curl        \
     http://cssminifier.com/raw > public/s/css/style.min.css
 echo
 
-# set up Nginx
-echo "Setting up Nginx ..."
-sudo cp etc/nginx/sites-available/cssminifier-com /etc/nginx/sites-available/
-if [ ! -h /etc/nginx/sites-enabled/cssminifier-com ]; then
-    sudo ln -s /etc/nginx/sites-available/cssminifier-com /etc/nginx/sites-enabled/
-fi
-sudo service nginx reload
+# set up Proximity
+echo "Setting up Proximity ..."
+sudo cp etc/proximity.d/cssminifier-com /etc/proximity.d/
 echo
 
 # set up the servers

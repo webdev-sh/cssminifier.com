@@ -1,0 +1,23 @@
+;; ----------------------------------------------------------------------------
+
+[www.cssminifier.com]
+type=redirect
+to=cssminifier.com
+
+[cssminifier.com]
+type=proxy
+host=localhost
+port=3000
+
+;; ----------------------------------------------------------------------------
+
+[www.localhost.cssminifier.com]
+type=redirect
+to=localhost.cssminifier.com
+
+[localhost.cssminifier.com]
+type=proxy
+host=localhost
+port=3000
+
+;; ----------------------------------------------------------------------------
