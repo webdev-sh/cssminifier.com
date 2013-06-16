@@ -1,5 +1,5 @@
 server:
-	NODE_ENV=development supervisor --no-restart-on error app.js
+	NODE_ENV=development supervisor --no-restart-on error server.js
 
 clean:
 	find . -name '*~' -exec rm {} ';'
