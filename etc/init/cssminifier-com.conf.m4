@@ -32,7 +32,7 @@ script
     exec \
         sudo -E -u __USER__ \
         __NODE__ \
-        __PWD__/app.js 8011 2>&1 >> /var/log/cssminifier-com/cssminifier.log
+        __PWD__/server.js 8011 2>&1 >> /var/log/cssminifier-com/cssminifier.log
 
 end script
 
