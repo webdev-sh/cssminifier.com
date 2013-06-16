@@ -9,7 +9,7 @@ git fetch
 git rebase origin/master
 echo
 
-# now call install.sh (since it's now been updated
+# now call install.sh (since it's now been updated)
 ./install.sh
 
 ## --------------------------------------------------------------------------------------------------------------------

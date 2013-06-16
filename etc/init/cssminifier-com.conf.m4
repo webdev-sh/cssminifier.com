@@ -28,11 +28,11 @@ script
     # quit the script if something goes wrong
     set -e
 
-    # run the webserver as ubuntu
+    # run the webserver as the user
     exec \
-        sudo -E -u ubuntu \
-        /home/ubuntu/.nvm/v0.8.22/bin/node \
-        /home/ubuntu/src/appsattic-cssminifier-com/app.js 8012 2>&1 >> /var/log/cssminifier-com/web-2.log
+        sudo -E -u __USER__ \
+        __NODE__ \
+        __PWD__/app.js 8011 2>&1 >> /var/log/cssminifier-com/cssminifier.log
 
 end script
 

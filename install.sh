@@ -3,6 +3,14 @@
 
 set -e
 
+## ----------------------------------------------------------------------------
+# Set these to your preferred values.
+
+THIS_USER=`id -un`
+THIS_GROUP=`id -gn`
+THIS_PWD=`pwd`
+THIS_NODE=`which node`
+
 ## --------------------------------------------------------------------------------------------------------------------
 
 # install any required packages
@@ -29,16 +37,20 @@ echo "Setting up Proximity ..."
 sudo cp etc/proximity.d/cssminifier-com /etc/proximity.d/
 echo
 
-# set up the servers
+# set up the server
 echo "Setting up various directories ..."
 sudo mkdir -p /var/log/cssminifier-com/
-sudo chown ubuntu:ubuntu /var/log/cssminifier-com/
+sudo chown $THIS_USER:$THIS_GROUP /var/log/cssminifier-com/
 echo
 
 # add the upstart scripts
-echo "Copying upstart scripts ..."
-sudo cp etc/init/cssminifier-com-1.conf /etc/init/
-sudo cp etc/init/cssminifier-com-2.conf /etc/init/
+echo "Copying upstart script ..."
+m4 \
+    -D __USER__=$THIS_USER \
+    -D __NODE__=$THIS_NODE \
+    -D  __PWD__=$THIS_PWD   \
+    -D __NODE__=$THIS_NODE \
+    etc/init/cssminifier-com.conf.m4 | sudo tee /etc/init/cssminifier-com.conf
 echo
 
 # restart the services, with a sleep in between
