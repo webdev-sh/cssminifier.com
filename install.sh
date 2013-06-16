@@ -55,9 +55,7 @@ echo
 
 # restart the services, with a sleep in between
 echo "Restarting services ..."
-sudo service cssminifier-com-1 restart
-sleep 10
-sudo service cssminifier-com-2 restart
+sudo service cssminifier-com restart
 echo
 
 ## --------------------------------------------------------------------------------------------------------------------
