@@ -2,7 +2,15 @@
 
 [www.cssminifier.com]
 type=redirect
-to=cssminifier.com
+to=http://cssminifier.com/
+
+[ww.cssminifier.com]
+type=redirect
+to=http://cssminifier.com/
+
+[w.cssminifier.com]
+type=redirect
+to=http://cssminifier.com/
 
 [cssminifier.com]
 type=proxy
