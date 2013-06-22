@@ -6,15 +6,16 @@
 * Sitemap
 * Social Buttons
 
+* div.g-plusone(data-size="medium",data-annotation="bubble",data-href="http://cssminifier.com/")
+* a(href="https://twitter.com/share",class="twitter-share-button",data-url="http://cssminifier.com/") Tweet
+* div.fb-like(data-href="http://cssminifier.com/",data-send="false",data-layout="button_count",data-width="60",data-show-faces="true")
+* su:badge(layout="1")
+
+* add help, about, etc
+
 div(style="margin: 10px; height: 90px;text-align: center;")
   img(src="http://placehold.it/720x90","720",height="90")
 * 574 x 87
     * 468 x 60
-
-* make logs work properly!!! :(
-* use upstart to start it on the server
-* add help, about, etc
-* logo
-* make Nginx do the www redirect
 
 (Ends)

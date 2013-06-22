@@ -1,0 +1,11 @@
+# Links #
+
+* http://optim.altima.fr/loptimisation-des-performances-en-allegeant-au-maximum-les-fichiers-cssjavascript-583/
+* http://webmasters.stackexchange.com/questions/33602/mediawiki-much-slower-in-firefox
+
+* http://www.webdesignerdepot.com/2012/05/how-to-speed-up-your-website/#comment-521560890
+* http://t3n.de/news/machst-website-schneller-386667/
+
+* http://ehealth.kcl.ac.uk/sites/team-blog/2012/07/06/injecting-custom-css-in-moodle/#comment-143
+
+(Ends)

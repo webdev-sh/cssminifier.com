@@ -1,0 +1,7 @@
+# Upstart #
+
+* http://caolanmcmahon.com/posts/deploying_node_js_with_upstart
+* http://howtonode.org/deploying-node-upstart-monit
+* http://kevin.vanzonneveld.net/techblog/article/run_nodejs_as_a_service_on_ubuntu_karmic/
+
+(Ends)
