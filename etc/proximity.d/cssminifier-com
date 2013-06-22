@@ -2,15 +2,15 @@
 
 [www.cssminifier.com]
 type=redirect
-to=http://cssminifier.com/
+to=http://cssminifier.com
 
 [ww.cssminifier.com]
 type=redirect
-to=http://cssminifier.com/
+to=http://cssminifier.com
 
 [w.cssminifier.com]
 type=redirect
-to=http://cssminifier.com/
+to=http://cssminifier.com
 
 [cssminifier.com]
 type=proxy
@@ -21,7 +21,7 @@ port=8011
 
 [www.localhost.cssminifier.com]
 type=redirect
-to=localhost.cssminifier.com
+to=http://localhost.cssminifier.com
 
 [localhost.cssminifier.com]
 type=proxy
