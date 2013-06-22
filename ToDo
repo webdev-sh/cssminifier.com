@@ -1,0 +1,20 @@
+# ToDo #
+
+* http://tools.pingdom.com/fpt/
+* http://www.webpagetest.org/
+
+* Sitemap
+* Social Buttons
+
+div(style="margin: 10px; height: 90px;text-align: center;")
+  img(src="http://placehold.it/720x90","720",height="90")
+* 574 x 87
+    * 468 x 60
+
+* make logs work properly!!! :(
+* use upstart to start it on the server
+* add help, about, etc
+* logo
+* make Nginx do the www redirect
+
+(Ends)
