@@ -1,5 +1,5 @@
 #!/bin/bash
-## --------------------------------------------------------------------------------------------------------------------
+## ----------------------------------------------------------------------------
 
 set -e
 
@@ -11,7 +11,7 @@ THIS_GROUP=`id -gn`
 THIS_PWD=`pwd`
 THIS_NODE=`which node`
 
-## --------------------------------------------------------------------------------------------------------------------
+## ----------------------------------------------------------------------------
 
 # install any required packages
 echo "Installing new npm packages ..."
@@ -53,7 +53,7 @@ m4 \
     etc/init/cssminifier-com.conf.m4 | sudo tee /etc/init/cssminifier-com.conf
 echo
 
-# restart the services, with a sleep in between
+# restart the service
 echo "Restarting services ..."
 sudo service cssminifier-com restart
 echo
