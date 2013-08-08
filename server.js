@@ -48,7 +48,7 @@ if( cluster.isMaster ) {
 }
 else {
     // child
-    process.title = 'child.css-minifier.com';
+    process.title = 'child.cssminifier.com';
 
     console.log('WORKER: Worker %s started', process.pid);
 
