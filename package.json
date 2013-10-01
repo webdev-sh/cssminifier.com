@@ -7,7 +7,7 @@
     "dependencies" : {
         "express"       : "3.x",
         "jade"          : "0.28.x",
-        "clean-css"     : "1.0.x",
+        "clean-css"     : "1.1.x",
         "log2"          : "0.1.x",
         "redis"         : "0.8.x",
         "connect-flake" : "*"
