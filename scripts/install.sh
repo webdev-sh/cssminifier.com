@@ -47,8 +47,7 @@ echo
 echo "Copying upstart script ..."
 m4 \
     -D __USER__=$THIS_USER \
-    -D __NODE__=$THIS_NODE \
-    -D  __PWD__=$THIS_PWD   \
+    -D  __PWD__=$THIS_PWD  \
     -D __NODE__=$THIS_NODE \
     etc/init/cssminifier-com.conf.m4 | sudo tee /etc/init/cssminifier-com.conf
 echo
