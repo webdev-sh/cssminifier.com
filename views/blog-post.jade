@@ -1,0 +1,12 @@
+extends blog
+
+block blogcontent
+  h2= thisPost.meta.title
+  | !{thisPost.html}
+  if thisPost.meta.tags
+    p(style="float: right;") Tags: 
+      for tag in thisPost.meta.tags
+        a.btn.btn-small(href="./tag:#{tag}") #{tag}
+        |  
+  p Posted: #{thisPost.meta.moment.fromNow()}
+  hr

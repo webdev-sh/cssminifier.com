@@ -1,0 +1,14 @@
+extends blog
+
+block blogcontent
+  for post in latest
+    h2
+      a(href=post.name)= post.meta.title
+    | !{post.html}
+    if post.meta.tags
+      p(style="float: right;") Tags: 
+        for tag in post.meta.tags
+          a.btn.btn-small(href="./tag:#{tag}") #{tag}
+          |  
+    p Posted: #{post.meta.moment.fromNow()}
+    hr

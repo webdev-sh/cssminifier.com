@@ -1,0 +1,10 @@
+extends blog
+
+block blogcontent
+
+  h2 Tag Cloud
+
+  p
+    for tagName in Object.keys(tagged).sort()
+      a.btn(href="./tag:#{tagName}") #{tagName} (#{tagged[tagName].length})
+      |  
