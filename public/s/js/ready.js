@@ -8,6 +8,10 @@ $(function() {
     var $output  = $('#output');
     var $buttons = $('#minify, #download, #raw, #clear');
 
+    if ( $buttons.length === 0 ) {
+        return;
+    }
+
     var $btnSelect = $('#select');
 
     function set_states() {
