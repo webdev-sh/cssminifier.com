@@ -11,7 +11,9 @@
         "clean-css"     : "1.1.x",
         "log2"          : "0.1.x",
         "redis"         : "0.8.x",
-        "connect-flake" : "*"
+        "connect-flake" : "*",
+        "moment"        : "*",
+        "rustle"        : "*"
     },
 
     "main": "app.js",

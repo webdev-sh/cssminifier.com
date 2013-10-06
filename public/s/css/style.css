@@ -57,6 +57,10 @@ pre {
     text-align: center;
 }
 
+.r, .table th.r, .table td.r {
+    text-align: right;
+}
+
 /* ------------------------------------------------------------------------- */
 
 
