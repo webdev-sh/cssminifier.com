@@ -1,7 +1,7 @@
 extends blog
 
 block blogcontent
-  for post in thesePosts
+  for post in blog.thesePosts
     h2
       a(href=post.name)= post.meta.title
     | !{post.html}
@@ -13,12 +13,12 @@ block blogcontent
     p Posted: #{post.meta.moment.fromNow()}
     hr
   p
-    if nextUrl
-      a(href=nextUrl) &laquo; Older Posts
+    if blog.nextUrl
+      a(href=blog.nextUrl) &laquo; Older Posts
     else
       span &laquo; Older Posts
-    |  - Page #{page} of #{pages.length} - 
-    if prevUrl
-      a(href=prevUrl) Newer Posts &raquo;
+    |  - Page #{blog.page} of #{blog.pages.length} - 
+    if blog.prevUrl
+      a(href=blog.prevUrl) Newer Posts &raquo;
     else
       span Newer Posts &raquo;
