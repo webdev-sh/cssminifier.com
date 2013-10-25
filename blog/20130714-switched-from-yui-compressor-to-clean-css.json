@@ -1,5 +1,5 @@
 {
     "title" : "Switched from YUI Compressor to clean-css",
-    "datetime" : "2013-07-14T10:29:05.000Z",
+    "date" : "2013-07-14T10:29:05.000Z",
     "tags" : [ "site-update", "css", "npm", "clean-css" ]
 }
