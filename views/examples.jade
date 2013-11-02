@@ -3,10 +3,10 @@ extends layout
 block content
   h3.muted Curl
   pre.
-    # minimising some CSS
+    # minifying some CSS
     curl -X POST -s --data-urlencode 'input=p { color : red; }' http://cssminifier.com/raw
 
-    # minimising a CSS file (e.g. style.css -> style.min.css)
+    # minifying a CSS file (e.g. style.css -> style.min.css)
     curl -X POST -s --data-urlencode 'input@style.css' http://cssminifier.com/raw > style.min.css
 
   h3.muted Node.js
