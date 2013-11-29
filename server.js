@@ -48,17 +48,30 @@ if( cluster.isMaster ) {
 }
 else {
     // child
+    var worker = cluster.worker;
     process.title = 'child.cssminifier.com';
 
-    console.log('WORKER: Worker %s started', process.pid);
+    console.log('WORKER(%s): Worker %s started', worker.id, process.pid);
 
     var app = require('./lib/app.js');
     var port = process.argv[2] || 3000;
 
     var server = http.createServer(app);
     server.listen(port, function() {
-        console.log('WORKER: Worker %s listening on port %s', process.pid, port);
+        console.log('WORKER(%s): Worker %s listening on port %s', worker.id, process.pid, port);
     });
+
+    // every hour (+-30mins) or so, disconnect so that the master can spawn a new process
+    var dieInSeconds = 3600 + Math.floor(Math.random() * 1800);
+    console.log('WORKER(%s): Dieing in %s seconds', worker.id, dieInSeconds);
+    setTimeout(function() {
+        console.log('WORKER(%s): Disconnecting myself', worker.pid);
+        worker.disconnect();
+        setTimeout(function() {
+            console.log('WORKER(%s): Killing myself', worker.pid);
+            worker.kill();
+        }, 2000);
+    }, dieInSeconds * 1000);
 }
 
 // ----------------------------------------------------------------------------
