@@ -20,7 +20,7 @@ var forks = process.env.NODE_ENV === 'development' ? 1 : 3;
 function log() {
     var args = Array.prototype.slice.call(arguments);
     args[0] = (new Date()).toISOString() + ' - ' + args[0];
-    console.log.apply(console.log, args);
+    console.log.apply(console, args);
 };
 
 if( cluster.isMaster ) {
