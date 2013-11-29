@@ -13,7 +13,9 @@ var http = require('http');
 
 // ----------------------------------------------------------------------------
 
-var forks = process.env.NODE_ENV === 'development' ? 1 : 3;
+var forks = process.env.NODE_ENV === 'production' ? 3 : 1;
+var memUsageEverySecs = process.env.NODE_ENV === 'production' ? 10 * 60 : 10;
+var dieInSecs = process.env.NODE_ENV === 'production' ? 3600 + Math.floor(Math.random() * 1800) : 60 + Math.floor(Math.random() * 30);
 
 // ----------------------------------------------------------------------------
 
@@ -68,21 +70,20 @@ else {
     });
 
     // every hour (+-30mins) or so, disconnect so that the master can spawn a new process
-    var dieInSeconds = 3600 + Math.floor(Math.random() * 1800);
-    log('WORKER(%s): Dieing in %s seconds', worker.id, dieInSeconds);
+    log('WORKER(%s): Dieing in %s seconds', worker.id, dieInSecs);
     setTimeout(function() {
-        log('WORKER(%s): Disconnecting myself', worker.pid);
+        log('WORKER(%s): Disconnecting myself', worker.id);
         worker.disconnect();
         setTimeout(function() {
-            log('WORKER(%s): Killing myself', worker.pid);
+            log('WORKER(%s): Killing myself', worker.id);
             worker.kill();
         }, 2000);
-    }, dieInSeconds * 1000);
+    }, dieInSecs * 1000);
 
     // every 10 mins, print memory usage
     setInterval(function() {
         log('WORKER(' + worker.id + '): memory - ', process.memoryUsage());
-    }, 10 * 60 * 1000);
+    }, memUsageEverySecs * 1000);
 }
 
 // ----------------------------------------------------------------------------
