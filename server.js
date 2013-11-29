@@ -62,9 +62,11 @@ else {
     log('WORKER(%s,%s): Worker started', worker.id, process.pid);
 
     var app = require('./lib/app.js');
-    var port = process.argv[2] || 3000;
+    var port = process.argv[2] || 8011;
 
-    var server = http.createServer(app);
+    var server = http.createServer();
+    server.on('request', app);
+
     server.listen(port, function() {
         log('WORKER(%s,%s): Worker listening on port %s', worker.id, process.pid, port);
     });
