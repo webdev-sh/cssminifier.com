@@ -25,7 +25,7 @@ function log() {
     console.log.apply(console, args);
 };
 
-if( cluster.isMaster ) {
+if (cluster.isMaster) {
     process.title = 'parent.cssminifier.com';
     for( var i = 0; i < forks; i++ ) {
         log('MASTER: Starting child...');

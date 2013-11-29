@@ -6,7 +6,7 @@
 
     "dependencies" : {
         "express"       : "3.x",
-        "jade"          : "0.28.x",
+        "jade"          : "0.35.x",
         "connect-blog"  : ">= 0.9",
         "clean-css"     : ">= 2.0.2",
         "log2"          : "*",
