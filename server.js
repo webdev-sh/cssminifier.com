@@ -59,30 +59,34 @@ else {
     var worker = cluster.worker;
     process.title = 'child.cssminifier.com';
 
-    log('WORKER(%s): Worker %s started', worker.id, process.pid);
+    log('WORKER(%s,%s): Worker started', worker.id, process.pid);
 
     var app = require('./lib/app.js');
     var port = process.argv[2] || 3000;
 
     var server = http.createServer(app);
     server.listen(port, function() {
-        log('WORKER(%s): Worker %s listening on port %s', worker.id, process.pid, port);
+        log('WORKER(%s,%s): Worker listening on port %s', worker.id, process.pid, port);
     });
 
     // every hour (+-30mins) or so, disconnect so that the master can spawn a new process
-    log('WORKER(%s): Dieing in %s seconds', worker.id, dieInSecs);
+    log('WORKER(%s,%s): Dieing in %s seconds', worker.id, process.pid, dieInSecs);
     setTimeout(function() {
-        log('WORKER(%s): Disconnecting myself', worker.id);
+        log('WORKER(%s,%s): Disconnecting myself', worker.id, process.pid);
         worker.disconnect();
         setTimeout(function() {
-            log('WORKER(%s): Killing myself', worker.id);
+            log('WORKER(%s,%s): Killing myself', worker.id, process.pid);
             worker.kill();
         }, 2000);
     }, dieInSecs * 1000);
 
     // every 10 mins, print memory usage
     setInterval(function() {
-        log('WORKER(' + worker.id + '): memory - ', process.memoryUsage());
+        var mem       = process.memoryUsage();
+        mem.rss       = Math.floor(mem.rss/1024/1024) + 'MB';
+        mem.heapTotal = Math.floor(mem.heapTotal/1024/1024) + 'MB';
+        mem.heapUsed  = Math.floor(mem.heapUsed/1024/1024) + 'MB';
+        log('WORKER(%s,%s): memory - rss=%s, heapUsed=%s, heapTotal=%s', worker.id, process.pid, mem.rss, mem.heapUsed, mem.heapTotal);
     }, memUsageEverySecs * 1000);
 }
 
