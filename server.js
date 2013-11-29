@@ -72,6 +72,11 @@ else {
             worker.kill();
         }, 2000);
     }, dieInSeconds * 1000);
+
+    // every 10 mins, print memory usage
+    setInterval(function() {
+        console.log('WORKER(' + worker.id + '): memory - ', process.memoryUsage());
+    }, 10 * 60 * 1000);
 }
 
 // ----------------------------------------------------------------------------
