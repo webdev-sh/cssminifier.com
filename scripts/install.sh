@@ -32,9 +32,9 @@ curl        \
     http://cssminifier.com/raw > public/s/css/style.min.css
 echo
 
-# set up Proximity
-echo "Setting up Proximity ..."
-sudo cp etc/proximity.d/cssminifier-com /etc/proximity.d/
+# set up Proxie
+echo "Setting up Proxie ..."
+sudo cp etc/proxie.d/cssminifier-com /etc/proxie.d/
 echo
 
 # set up the server

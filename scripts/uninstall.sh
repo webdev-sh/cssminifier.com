@@ -16,9 +16,9 @@ echo "Removing log dirs ..."
 sudo rm -rf /var/log/cssminifier-com/
 echo
 
-# remove proximity conf
-echo "Removing proximity config ..."
-sudo rm /etc/proximity.d/cssminifier-com
+# remove proxie conf
+echo "Removing proxie config ..."
+sudo rm /etc/proxie.d/cssminifier-com
 echo
 
 # finally, remove itself
