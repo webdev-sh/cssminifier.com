@@ -55,6 +55,7 @@ echo
 # restart the service
 echo "Restarting services ..."
 sudo service cssminifier-com restart
+sudo service proxie restart
 echo
 
 ## --------------------------------------------------------------------------------------------------------------------
