@@ -1,46 +1,69 @@
-!!!
-html
+doctype html
+html(lang="en")
   head
     meta(charset="utf-8")
-    title= title || blog.title
+    meta(http-equiv="X-UA-Compatible",content="IE=edge")
+    meta(name="viewport",content="width=device-width, initial-scale=1.0")
     meta(
       name="description",
       content="Online CSS Minifier/Compressor. Free! Works with Media Queries. Provides an API. Simple Quick and Fast!")
     meta(
       name="keywords",
       content="css, cssminifier, css minifier, css minification, css minify, minify css, minified css, compress css, design, css3, web, html, javascript, web development, hosting")
-    link(rel="stylesheet",href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css")
-    link(rel="stylesheet",href="/s/css/style#{min}.css")
+    meta(name="author",content="Andrew Chilton, @andychilton")
+    link(rel="shortcut icon",href="/favicon.ico")
+
+    title= title || blog.title
+
+    // Bootstrap core CSS
+    link(href="//oss.maxcdn.com/libs/twitter-bootstrap/3.0.3/css/bootstrap.min.css",rel="stylesheet")
+    // Custom styles for this template
+    link(href="/s/css/style#{min}.css",rel="stylesheet")
+
+    // HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
+    | <!--[if lt IE 9]>
+    |   <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    |   <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    | <![endif]-->
 
   body
 
-    div.navbar.navbar-inverse.navbar-fixed-top
-      div.navbar-inner
-        div.container
-          a.brand(href="/") cssminifier.com
-          p Minify your CSS - Simple, Quick and Fast!
+    .container
 
-    div#main.container
-      div.row
-        div.span12
+      // Static navbar
+      .navbar.navbar-default(role="navigation")
+        .navbar-header
+          button.navbar-toggle(type="button",data-toggle="collapse",data-target=".navbar-collapse")
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href="/") cssminifier.com
+        .collapse.navbar-collapse
+          ul.nav.navbar-nav
+            li
+              a(href="/examples") Examples
+            li
+              a(href="/blog/") Blog
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href="") Our other services:
+            li
+              a(href="http://javascript-minifier.com/") JavaScript Minifier
+            li
+              a(href="http://pngcrush.com/") PNG Crush
+            li
+              a(href="http://jpgoptimiser.com/") JPG Optimiser
+
+      #ads.row
+        .col-md-4
+          h1 Minify your CSS
           p
-            | Sitemap: 
-            a(href="/") Home
-            |  | 
-            a(href="/blog/") Blog
-            |  | 
-            a(href="/examples") Examples
+            | Please support this site by using this referral code from 
+            a(href=ad.url) Digital Ocean
+            |  if you would like hosting there. xox
 
-      div#ads.row
-        div.span4
-          h4.muted Our other services:
-          a.btn(href="http://javascript-minifier.com/") JavaScript Minifier
-          |  
-          a.btn(href="http://pngcrush.com/") PNG Crush
-          |  
-          a.btn(href="http://jpgoptimiser.com/") JPG Optimiser
-          h4.muted Please support this site -----&gt;
-        div.span8.c
+        #ads.col-md-8.c
           a(href=ad.url)
             img(width="728",height="90",src=ad.src,title=ad.title,alt=ad.title)
 
@@ -63,5 +86,5 @@ html
           ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
           var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
         })();
-    script(src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery#{min}.js")
+    script(src="//oss.maxcdn.com/libs/jquery/2.0.3/jquery.min.js")
     script(src="/s/js/ready#{min}.js")

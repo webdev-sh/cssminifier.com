@@ -2,13 +2,13 @@ extends layout
 
 block content
   div.row
-    div.span6
+    div.col-md-6
       h3.muted Input CSS
       form#input-form.form-stacked(method="post", name="f", action="/minify")
         fieldset
           div.clearfix
             div.input
-              textarea#input.span6(name="input",rows="15",wrap="off",autofocus="autofocus",spellcheck="false")
+              textarea#input.col-md-12(name="input",rows="15",wrap="off",autofocus="autofocus",spellcheck="false")
           div.actions
             button#minify.btn.btn-primary(type="submit") Minify
             |  
@@ -18,13 +18,13 @@ block content
             |  
             input#clear.btn(type="reset",value="Clear")
 
-    div.span6
+    div.col-md-6
       h3.muted Minified Output
       form#output-form.form-stacked(name="f")
         fieldset
           div.clearfix
             div.input
-              textarea#output.span6(name="output",rows="15",wrap="soft",disabled="disabled")
+              textarea#output.col-md-12(name="output",rows="15",wrap="soft",disabled="disabled")
           div.actions
             button#select.btn(type="button",disabled="disabled") Select All
 
