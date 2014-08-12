@@ -11,6 +11,7 @@ block content
         th.r Minify
         th.r Download
         th.r Raw
+        th.r Compress
     tbody
       for ts in Object.keys(stats).sort()
         tr
@@ -19,5 +20,6 @@ block content
           td.r= stats[ts].minify || 0
           td.r= stats[ts].download || 0
           td.r= stats[ts].raw || 0
+          td.r= stats[ts].compress || 0
 
   p (Ends)
