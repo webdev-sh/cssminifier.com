@@ -8,7 +8,7 @@
         "express"       : "3.4.x",
         "jade"          : "1.1.x",
         "connect-blog"  : "0.12.x",
-        "clean-css"     : "2.2.8",
+        "clean-css"     : "2.2.16",
         "log2"          : "*",
         "redis"         : "0.8.x",
         "connect-flake" : "*",
