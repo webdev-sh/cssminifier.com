@@ -66,22 +66,22 @@ echo
 
 # set up the server
 echo "Setting up various directories ..."
-sudo mkdir -p /var/log/cssminifier-com/
-sudo chown $THIS_USER:$THIS_GROUP /var/log/cssminifier-com/
+sudo mkdir -p /var/log/com-cssminifier/
+sudo chown $THIS_USER:$THIS_GROUP /var/log/com-cssminifier/
 echo
 
 # add the upstart scripts
-echo "Copying upstart script ..."
+echo "Copying supervisor script ..."
 m4 \
     -D __USER__=$THIS_USER \
     -D  __PWD__=$THIS_PWD  \
     -D __NODE__=$THIS_NODE \
-    etc/init/cssminifier-com.conf.m4 | sudo tee /etc/init/cssminifier-com.conf
+    etc/supervisor/conf.d/com-cssminifier.conf.m4 | sudo tee /etc/supervisor/conf.d/com-cssminifier.conf.m4
 echo
 
 # restart the service
 echo "Restarting services ..."
-sudo service cssminifier-com restart
+sudo service supervisor restart
 sudo service nginx restart
 echo
 
