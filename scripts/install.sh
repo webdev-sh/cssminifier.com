@@ -37,26 +37,26 @@ echo "Setting up Nginx ..."
 FILE=/tmp/com-cssminifier
 cat /dev/null > $FILE
 nginx-generator \
-    --name cssminifier-com \
+    --name com-cssminifier \
     --domain cssminifier.com \
     --type proxy \
     --var host=localhost \
     --var port=8011 \
     - >> $FILE
 nginx-generator \
-    --name cssminifier-com-www \
+    --name com-cssminifier-www \
     --domain www.cssminifier.com \
     --type redirect \
     --var to=cssminifier.com \
     - >> $FILE
 nginx-generator \
-    --name cssminifier-com-ww \
+    --name com-cssminifier-ww \
     --domain ww.cssminifier.com \
     --type redirect \
     --var to=cssminifier.com \
     - >> $FILE
 nginx-generator \
-    --name cssminifier-com-w \
+    --name com-cssminifier-w \
     --domain w.cssminifier.com \
     --type redirect \
     --var to=cssminifier.com \
