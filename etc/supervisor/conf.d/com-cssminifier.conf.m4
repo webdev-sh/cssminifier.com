@@ -4,6 +4,6 @@ directory = /home/chilts/src/chilts-cssminifier-com
 user = __USER__
 autostart = true
 autorestart = true
-stdout_logfile = /var/log/com-cssminifier/cssminifier-stout.log
-stderr_logfile = /var/log/com-cssminifier/cssminifier-sterr.log
+stdout_logfile = /var/log/com-cssminifier/stdout.log
+stderr_logfile = /var/log/com-cssminifier/stderr.log
 environment = NODE_ENV="production"
