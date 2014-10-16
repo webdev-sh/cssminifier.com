@@ -32,9 +32,36 @@ curl        \
     http://cssminifier.com/raw > public/s/css/style.min.css
 echo
 
-# set up Proxie
-echo "Setting up Proxie ..."
-sudo cp etc/proxie.d/cssminifier-com /etc/proxie.d/
+# set up Nginx
+echo "Setting up Nginx ..."
+FILE=/tmp/com-cssminifier
+cat /dev/null > $FILE
+nginx-generator \
+    --name cssminifier-com \
+    --domain cssminifier.com \
+    --type proxy \
+    --var host=localhost \
+    --var port=8011 \
+    - >> $FILE
+nginx-generator \
+    --name cssminifier-com-www \
+    --domain www.cssminifier.com \
+    --type redirect \
+    --var to=cssminifier.com \
+    - >> $FILE
+nginx-generator \
+    --name cssminifier-com-ww \
+    --domain ww.cssminifier.com \
+    --type redirect \
+    --var to=cssminifier.com \
+    - >> $FILE
+nginx-generator \
+    --name cssminifier-com-w \
+    --domain w.cssminifier.com \
+    --type redirect \
+    --var to=cssminifier.com \
+    - >> $FILE
+sudo cp $FILE /etc/nginx/sites-enabled/
 echo
 
 # set up the server
@@ -55,7 +82,7 @@ echo
 # restart the service
 echo "Restarting services ..."
 sudo service cssminifier-com restart
-sudo service proxie restart
+sudo service nginx restart
 echo
 
 ## --------------------------------------------------------------------------------------------------------------------
