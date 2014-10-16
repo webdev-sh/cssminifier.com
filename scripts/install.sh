@@ -76,7 +76,7 @@ m4 \
     -D __USER__=$THIS_USER \
     -D  __PWD__=$THIS_PWD  \
     -D __NODE__=$THIS_NODE \
-    etc/supervisor/conf.d/com-cssminifier.conf.m4 | sudo tee /etc/supervisor/conf.d/com-cssminifier.conf.m4
+    etc/supervisor/conf.d/com-cssminifier.conf.m4 | sudo tee /etc/supervisor/conf.d/com-cssminifier.conf
 echo
 
 # restart the service
