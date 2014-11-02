@@ -70,7 +70,7 @@ sudo mkdir -p /var/log/com-cssminifier/
 sudo chown $THIS_USER:$THIS_GROUP /var/log/com-cssminifier/
 echo
 
-# add the upstart scripts
+# add the supervisor scripts
 echo "Copying supervisor script ..."
 m4 \
     -D __USER__=$THIS_USER \
@@ -79,9 +79,9 @@ m4 \
     etc/supervisor/conf.d/com-cssminifier.conf.m4 | sudo tee /etc/supervisor/conf.d/com-cssminifier.conf
 echo
 
-# restart the service
+# restart services
 echo "Restarting services ..."
-sudo service supervisor restart
+sudo supervisorctl reload
 sudo service nginx restart
 echo
 
