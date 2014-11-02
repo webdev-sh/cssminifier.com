@@ -16,24 +16,14 @@
         "rustle"        : "*"
     },
 
-    "main": "app.js",
     "author" : {
         "name"  : "Andrew Chilton",
         "email" : "chilts@appsattic.com",
         "url"   : "http://chilts.org/blog/"
     },
-    "homepage" : "https://github.com/appsattic/cssminifier-com/",
-    "repository" : {
-        "type" : "git",
-        "url"  : "git://github.com/appsattic/cssminifier-com.git"
-    },
-   "bugs" : {
-        "url" : "http://github.com/appsattic/cssminifier-com/issues"
-    },
 
     "scripts": {
-        "start" : "node app.js",
-        "test"  : "tap test/*.js"
+        "start" : "node server.js"
     },
 
     "license": "Copyright 2012-2013 Apps Attic Ltd. Copyright 2013 Andrew Chilton. All Rights Reserved."
