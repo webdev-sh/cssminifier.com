@@ -1,30 +1,23 @@
 {
-    "name" : "cssminifier-com",
-    "description" : "Minify your CSS",
-    "version" : "0.2.0",
-    "private" : true,
-
-    "dependencies" : {
-        "express"       : "3.4.x",
-        "jade"          : "1.1.x",
-        "connect-blog"  : "0.12.x",
-        "clean-css"     : "2.2.16",
-        "log2"          : "*",
-        "redis"         : "0.8.x",
-        "connect-flake" : "*",
-        "moment"        : "*",
-        "rustle"        : "*"
-    },
-
-    "author" : {
-        "name"  : "Andrew Chilton",
-        "email" : "chilts@appsattic.com",
-        "url"   : "http://chilts.org/blog/"
-    },
-
-    "scripts": {
-        "start" : "node server.js"
-    },
-
-    "license": "Copyright 2012-2013 Apps Attic Ltd. Copyright 2013 Andrew Chilton. All Rights Reserved."
+  "name": "com-cssminifier",
+  "description": "Minify your CSS",
+  "version": "0.3.0",
+  "private": true,
+  "dependencies": {
+    "body-parser": "^1.9.2",
+    "clean-css": "2.2.16",
+    "compression": "^1.2.0",
+    "connect-blog": "0.12.x",
+    "connect-flake": "*",
+    "errorhandler": "^1.2.2",
+    "express": "^4.10.1",
+    "jade": "^1.7.0",
+    "log2": "*",
+    "moment": "*",
+    "morgan": "^1.5.0",
+    "redis": "^0.12.1",
+    "rustle": "*",
+    "serve-favicon": "^2.1.6"
+  },
+  "license": "Copyright 2013 Apps Attic Ltd. All Rights Reserved."
 }
