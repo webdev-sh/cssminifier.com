@@ -1,0 +1,13 @@
+/* From: https://developer.mozilla.org/en-US/docs/Web/CSS/calc */
+
+.blah1 {
+    width: calc( -100% + 50px );
+}
+
+.blah2 {
+    width: calc( 50px / 3 );
+}
+
+.blah3 {
+    width: calc( 100% + 50px );
+}
