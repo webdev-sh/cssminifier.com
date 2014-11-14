@@ -60,15 +60,19 @@ html(lang="en")
       #ads.row
         .col-md-4
           h1 Minify your CSS
+          p= pkg.description
           p
-            | #{ad.text1}
-            a(href=ad.url)= ad.title
-            | #{ad.text2}
-          p
+            a.twitter-share-button(href="https://twitter.com/share",data-url="http://cssminifier.com/",data-text="CSS Minifier",data-via="andychilton",data-size="large") Tweet
+            script.
+              !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
 
         #ads.col-md-8.c
           a(href=ad.url)
             img(width="728",height="90",src=ad.src,title=ad.title,alt=ad.title)
+          p
+            | #{ad.text1}
+            a(href=ad.url)= ad.title
+            | #{ad.text2}
 
       block content
 
