@@ -61,9 +61,10 @@ html(lang="en")
         .col-md-4
           h1 Minify your CSS
           p
-            | Please support this site by using this referral code from 
-            a(href=ad.url) Digital Ocean
-            |  if you would like hosting there. xox
+            | #{ad.text1}
+            a(href=ad.url)= ad.title
+            | #{ad.text2}
+          p
 
         #ads.col-md-8.c
           a(href=ad.url)
