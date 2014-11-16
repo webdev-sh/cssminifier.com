@@ -1,6 +1,6 @@
 {
   "name": "com-cssminifier",
-  "description": "Online CSS Minifier/Compressor. Free! Works with Media Queries. Provides an API. Simple Quick and Fast!",
+  "description": "Online CSS Minifier/Compressor. Free! Provides an API. Simple Quick and Fast.",
   "version": "0.3.0",
   "private": true,
   "dependencies": {
