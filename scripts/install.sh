@@ -69,6 +69,11 @@ sudo cp $FILE /etc/nginx/sites-enabled/
 rm -f $FILE
 echo
 
+# set up the cron job
+echo "Setting up the cron job ..."
+sudo cp etc/cron.d/$NAME /etc/cron.d/
+echo
+
 # set up the server
 echo "Setting up various directories ..."
 sudo mkdir -p /var/log/$NAME/
