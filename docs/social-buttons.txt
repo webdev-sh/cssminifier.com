@@ -1,5 +1,10 @@
 # Social Buttons #
 
+* https://about.twitter.com/resources/buttons#tweet
+* https://dev.twitter.com/web/tweet-button
+* https://developers.facebook.com/docs/plugins/like-button
+* https://developers.google.com/+/web/+1button/
+
 Copy links from : http://jquerylist.com/
 
 * Google - http://www.google.com/webmasters/+1/button/

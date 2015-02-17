@@ -18,4 +18,8 @@ div(style="margin: 10px; height: 90px;text-align: center;")
 * 574 x 87
     * 468 x 60
 
+## Done ##
+
+* save *every* stylesheet, so that when the server hangs, I can see the last ones (use flake for IDs)
+
 (Ends)
