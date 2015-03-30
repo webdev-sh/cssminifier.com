@@ -17,6 +17,11 @@ PORT=8011
 
 ## ----------------------------------------------------------------------------
 
+# figure out if we need to install nginx-generator
+echo "Installing nginx-generator if needed ..."
+which nginx-generator || npm install -g nginx-generator
+echo
+
 # install any required packages
 echo "Installing new npm packages ..."
 npm update --production
