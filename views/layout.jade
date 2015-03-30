@@ -62,23 +62,8 @@ html(lang="en")
           h1 Minify your CSS
           p= pkg.description
         .col-md-8.c
-          if amazon
-            script(type="text/javascript",language="javascript").
-              amzn_assoc_ad_type="contextual";
-              amzn_assoc_tracking_id="cssminifier-20";
-              amzn_assoc_marketplace="amazon";
-              amzn_assoc_region="US";
-              amzn_assoc_placement="BNVQ5SAECKNVGTZV";
-              amzn_assoc_linkid="BNVQ5SAECKNVGTZV";
-              amzn_assoc_emphasize_categories="1000";
-              amzn_assoc_fallback_products="";
-              amzn_assoc_fallback_products="1118008189, 1118289382, B00IOSC4CM, 1890774669, B00HUEG8PA, 0321719611, 1111527989, 1449319270, 1449325947";
-              amzn_assoc_width="728";
-              amzn_assoc_height="90";
-            script(type="text/javascript",language="javascript",src="//z-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1&MarketPlace=US&source=ac")
-          else
-            a(href=ad.url)
-              img(width="728",height="90",src=ad.src,title=ad.title,alt=ad.title)
+          a(href=ad.url)
+            img(width="728",height="90",src=ad.src,title=ad.title,alt=ad.title)
 
       .row
         .col-md-4
@@ -98,13 +83,10 @@ html(lang="en")
               .g-plusone(style="font-size:1px;display:inline-block;",data-size="medium",data-href="http://cssminifier.com/")
 
         .col-md-8.c
-          if amazon
-            // no text for the Amazon advert
-          else
-            p
-              | #{ad.text1}
-              a(href=ad.url)= ad.title
-              | #{ad.text2}
+          p
+            | #{ad.text1}
+            a(href=ad.url)= ad.title
+            | #{ad.text2}
 
       block content
 
