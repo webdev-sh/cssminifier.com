@@ -15,6 +15,12 @@ test-remote:
 	curl -X POST -s --data-urlencode 'input@test/ok.css'        http://cssminifier.com/raw > test/ok.min.css
 	curl -X POST -s --data-urlencode 'input@test/bootstrap.css' http://cssminifier.com/raw > test/bootstrap.min.css
 
+open-digital-ocean-referrals:
+	xdg-open https://cloud.digitalocean.com/settings/referrals
+
+open-dnsimple-account:
+	xdg-open https://dnsimple.com/account
+
 clean:
 	find . -name '*~' -exec rm {} ';'
 
