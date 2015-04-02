@@ -29,7 +29,8 @@ if (cluster.isMaster) {
     process.title = 'parent.cssminifier.com';
     for( var i = 0; i < forks; i++ ) {
         log('MASTER: Starting child...');
-        cluster.fork();
+        var worker = cluster.fork();
+        worker.on('message', receivePing);
     }
 
     cluster.on('fork', function(worker) {
@@ -51,8 +52,46 @@ if (cluster.isMaster) {
     cluster.on('exit', function(worker, code, signal) {
         var exitCode = worker.process.exitCode;
         log('MASTER: worker ' + worker.process.pid + ' died (' + exitCode + ') due to ' + signal + '.');
-        cluster.fork();
+        var worker = cluster.fork();
+        worker.on('message', receivePing);
     });
+
+    var msgs = {};
+    var pingTimer;
+    function receivePing(msg) {
+        log('MASTER: got response from ' + msg);
+        delete msgs[msg]
+        if ( !msgs.length ) {
+            return;
+        }
+        var id = parseInt(msg, 10)
+        if ( Object.keys(msgs).length === 0 ) {
+          clearTimeout(pingTimer);
+          pingTimer = undefined;
+        }
+    }
+
+    // send a message to the child and wait for a response
+    setInterval(function() {
+        for (var id in cluster.workers) {
+            msgs[id] = 'sent';
+            log('MASTER(%s,%s): sending ping to worker', id, cluster.workers[id].process.pid);
+            cluster.workers[id].send('Are you there?');
+        }
+
+        // see if we get a response within 5s
+        pingTimer = setTimeout(function() {
+            for(var id in msgs) {
+                // kill this child
+                log('MASTER(%s,%s): killing worker for not responding to ping', id, cluster.workers[id].process.pid);
+                cluster.workers[id].kill();
+            }
+            clearTimeout(pingTimer);
+            pingTimer = undefined;
+            msgs = {};
+        }, 10 * 1000);
+
+    }, 15 * 1000);
 }
 else {
     // child
@@ -90,6 +129,11 @@ else {
         mem.heapUsed  = Math.floor(mem.heapUsed/1024/1024) + 'MB';
         log('WORKER(%s,%s): memory - rss=%s, heapUsed=%s, heapTotal=%s', worker.id, process.pid, mem.rss, mem.heapUsed, mem.heapTotal);
     }, memUsageEverySecs * 1000);
+
+    process.on('message', function(msg) {
+        log('WORKER(%s,%s): Responding to master ping', worker.id, process.pid);
+        process.send(worker.id);
+    });
 }
 
 // ----------------------------------------------------------------------------
