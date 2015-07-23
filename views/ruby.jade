@@ -1,0 +1,20 @@
+extends layout
+
+block content
+
+  h3.muted Ruby
+
+  p Thanks to Jeremy Cron for contributing this example.
+
+  pre.
+
+    require "rest_client"
+
+    task :minify do
+      css_file = "public/stylesheets/main.css"
+      css_min_file = "public/stylesheets/min/main.min.css"
+      response = RestClient.post "http://cssminifier.com/raw", {:input => File.open(css_file).read}
+      File.open(css_min_file, "w").write(response)
+    end
+
+  include ./language-footer.jade

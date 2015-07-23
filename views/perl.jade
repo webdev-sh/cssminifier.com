@@ -1,0 +1,31 @@
+extends layout
+
+block content
+
+  h3.muted Perl
+
+  p Thanks to Boris Kotyrev (I've adapted what he sent to be more minimal).
+
+  pre.
+    use strict;
+    use warnings;
+
+    use File::Slurp;
+    use HTTP::Request::Common qw(POST);
+    use LWP::UserAgent;
+
+    sub minify{
+        my ($css) = @_;
+
+        my $css_min_url = "http://cssminifier.com/raw";
+
+        my $ua = LWP::UserAgent->new;
+        my $request = POST($css_min_url, [ 'input' => $css ]);
+        my $css_min = $ua->request($request)->decoded_content();
+
+        return $css_min;
+    }
+
+    print minify($css, "\n");
+
+  include ./language-footer.jade
