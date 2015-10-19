@@ -9,7 +9,6 @@
     "compression": "^1.2.0",
     "connect-blog": "0.12.x",
     "connect-flake": "*",
-    "errorhandler": "^1.2.2",
     "express": "^4.10.1",
     "jade": "^1.7.0",
     "log2": "*",
