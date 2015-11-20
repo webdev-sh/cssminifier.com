@@ -6,4 +6,4 @@ autostart = true
 autorestart = true
 stdout_logfile = /var/log/com-cssminifier/stdout.log
 stderr_logfile = /var/log/com-cssminifier/stderr.log
-environment = NODE_ENV="production",PATH=%(ENV_PATH)s
+environment = NODE_ENV="production"
