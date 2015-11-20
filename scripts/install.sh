@@ -10,6 +10,7 @@ THIS_USER=`id -un`
 THIS_GROUP=`id -gn`
 THIS_PWD=`pwd`
 THIS_NODE=`which node`
+THIS_PATH=`dirname $THIS_NODE`
 
 NAME=com-cssminifier
 NAKED_DOMAIN=cssminifier.com
@@ -93,6 +94,7 @@ m4 \
     -D __USER__=$THIS_USER \
     -D  __PWD__=$THIS_PWD  \
     -D __NODE__=$THIS_NODE \
+    -D __PATH__=$THIS_PATH \
     etc/supervisor/conf.d/$NAME.conf.m4 | sudo tee /etc/supervisor/conf.d/$NAME.conf
 echo
 
