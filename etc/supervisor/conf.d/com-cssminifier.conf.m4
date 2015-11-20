@@ -1,6 +1,6 @@
 [program:com-cssminifier]
 command = sudo -E -u chilts __NODE__ __PWD__/server.js
-directory = /home/chilts/src/chilts-cssminifier-com
+directory = __PWD__
 user = __USER__
 autostart = true
 autorestart = true
