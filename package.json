@@ -5,7 +5,7 @@
   "private": true,
   "dependencies": {
     "body-parser": "^1.14.1",
-    "clean-css": "^3.4.6",
+    "clean-css": "^3.4.8",
     "compression": "^1.6.0",
     "connect-blog": "0.12.x",
     "connect-flake": "*",
