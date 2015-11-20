@@ -1,0 +1,167 @@
+    
+.logo h2 {
+    display: inline-block;=:20px;
+    color: white;
+    font-size: 1em;
+    vertical-align: middle;
+    align-self: center;
+}
+
+.logo {
+    display: flex;
+}
+body {
+    margin: 0;
+    font-family: sans-serif;  background: rgb(241, 241, 241);
+}
+section img {
+  display: inline-block;
+  max-width: 100%;
+}
+header > img {
+    width: 100%;  max-height: 420px;
+}
+.acc-body {
+  padding: 0 35px;
+  line-height: 1.2em;
+  MARGIN-TOP: 10PX;
+}
+.logo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+header {
+    position: relative;
+}
+
+.page-container {
+    max-width: 900px;
+    position: relative;
+    top: -250px;
+    margin: auto;
+}
+
+h1 {
+    text-transform: capitalize;
+    color: white;
+    text-shadow: -2px 2px 0px  #330203;
+}
+
+.page {
+    padding: 15px 30px 200px;
+    background: white;
+    box-sizing: border-box;
+    box-shadow: 0px 2px 7px black;
+    border-radius: 4px;
+    overflow: hidden;
+    color: #797575;
+}
+
+.info div {
+    display: inline-block;
+    width: 45%;
+    margin: 2% 2%;
+    text-align: center;
+}
+
+.overView {
+    max-width: 40%;
+}
+
+.info div:nth-child(odd) {
+text-align: right;}
+
+.info div:nth-child(even) {
+    text-align: left;
+}
+.thumbs div {
+  position: relative;
+  box-sizing: border-box;
+  letter-spacing: 0;
+  font-size: 0;
+  width: 22%;
+  display: inline-block;
+}
+.thumbs img {
+  border: 1px solid rgb(168, 168, 168);
+  border-right: 0;
+}
+
+.thumbs img:last-child {
+    border-right: 1px solid rgb(168, 168, 168);  
+}
+.thumbs .active:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: rgb(230, 10, 6);
+    z-index: 11;
+}
+
+section.main {
+  display: flex;margin-bottom: 1.2em;
+}
+.carosule , .overView {
+  flex: 5;max-width: 49.5%;
+}
+
+
+
+section.main > div {
+    padding: 10px 20px;
+}
+
+.overView h2 {
+    margin-top: 0;
+}
+
+div#current {
+    margin-bottom: 25px;
+}
+  .acc-header button {
+  padding: 7px 15px 11px 15px;
+  margin: 30px 5px 20px;
+  border: 0;
+  background: none;  position: relative;
+  font-size: 1.4em;
+  color: gray;outline: none;
+  border-right: 2px solid gray;
+}
+
+.acc-header button:last-child {
+    border-right: 0;
+} 
+.acc-body h2 {
+  display: none;
+}
+button.active:after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  height: 4px;
+  background: rgb(223, 12, 14);
+  width: 80%;
+  right: 10%;
+  left: 10%;
+}
+.acc-header button.active {
+  color: black;
+}
+
+.methods {
+  background: WHITE;
+  box-shadow: 0px 0px 7px black;
+  padding: 0 3%;
+  padding-bottom: 50px;
+}
+
+div#current img {
+  box-shadow: 0px 0px 2px gray;
+  border: 1px solid rgb(242, 242, 242);
+}

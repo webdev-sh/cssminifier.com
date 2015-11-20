@@ -15,7 +15,7 @@ var http = require('http');
 
 var forks = process.env.NODE_ENV === 'production' ? 3 : 1;
 var memUsageEverySecs = process.env.NODE_ENV === 'production' ? 10 * 60 : 10;
-var dieInSecs = process.env.NODE_ENV === 'production' ? 3600 + Math.floor(Math.random() * 1800) : 60 + Math.floor(Math.random() * 30);
+var dieInSecs = process.env.NODE_ENV === 'production' ? 3600 + Math.floor(Math.random() * 1800) : 600 + Math.floor(Math.random() * 300);
 
 // ----------------------------------------------------------------------------
 
@@ -72,6 +72,8 @@ if (cluster.isMaster) {
     }
 
     // send a message to the child and wait for a response
+    var oneMin = 60 * 1000;
+    var within5Secs = 5 * 1000;
     setInterval(function() {
         for (var id in cluster.workers) {
             msgs[id] = 'sent';
@@ -79,7 +81,7 @@ if (cluster.isMaster) {
             cluster.workers[id].send('Are you there?');
         }
 
-        // see if we get a response within 5s
+        // see if we get a response within a short amount of time
         pingTimer = setTimeout(function() {
             for(var id in msgs) {
                 // kill this child
@@ -89,9 +91,9 @@ if (cluster.isMaster) {
             clearTimeout(pingTimer);
             pingTimer = undefined;
             msgs = {};
-        }, 10 * 1000);
+        }, within5Secs);
 
-    }, 15 * 1000);
+    }, oneMin);
 }
 else {
     // child
