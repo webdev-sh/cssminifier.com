@@ -50,7 +50,7 @@ echo "Setting up the cron job ..."
 sudo cp etc/cron.d/$NAME /etc/cron.d/
 echo
 
-# add the supervisor scripts
+# add the upstart scripts
 echo "Copying init script ..."
 m4 \
     -D __USER__=$THIS_USER \
@@ -71,7 +71,7 @@ sudo ufw allow from 10.128.169.61 to 10.128.174.96 port 8011 proto tcp
 
 # restart services
 echo "Restarting services ..."
-sudo com-cssminifier restart
+sudo service com-cssminifier restart
 echo
 
 ## --------------------------------------------------------------------------------------------------------------------
