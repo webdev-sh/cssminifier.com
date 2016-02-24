@@ -4,10 +4,10 @@ block content
   h3.muted Curl
   pre.
     # minifying some CSS
-    curl -X POST -s --data-urlencode 'input=p { color : red; }' http://cssminifier.com/raw
+    curl -X POST -s --data-urlencode 'input=p { color : red; }' https://cssminifier.com/raw
 
     # minifying a CSS file (e.g. style.css -> style.min.css)
-    curl -X POST -s --data-urlencode 'input@style.css' http://cssminifier.com/raw > style.min.css
+    curl -X POST -s --data-urlencode 'input@style.css' https://cssminifier.com/raw > style.min.css
 
   h3.muted Node.js
   pre.
@@ -45,7 +45,7 @@ block content
   pre.
     &lt;?php
         // setup the URL, the CSS and the form data
-        $url = 'http://cssminifier.com/raw';
+        $url = 'https://cssminifier.com/raw';
         $css = file_get_contents('./public/s/css/style.css');
         $data = array(
             'input' =&gt; $css,
@@ -84,7 +84,7 @@ block content
     sub minify{
         my ($css) = @_;
 
-        my $css_min_url = "http://cssminifier.com/raw";
+        my $css_min_url = "https://cssminifier.com/raw";
 
         my $ua = LWP::UserAgent->new;
         my $request = POST($css_min_url, [ 'input' => $css ]);
@@ -97,7 +97,7 @@ block content
 
   h3.muted LWP Request
   pre.
-    $ lwp-request -m POST http://cssminifier.com/raw
+    $ lwp-request -m POST https://cssminifier.com/raw
     Please enter content (application/x-www-form-urlencoded) to be POSTed:
     input=p%20{%20color:%20white;%20}
     ^D
