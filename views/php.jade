@@ -5,27 +5,31 @@ block content
   h3.muted PHP
   pre.
     &lt;?php
-        // setup the URL, the CSS and the form data
+        // setup the URL and read the CSS from a file
         $url = 'https://cssminifier.com/raw';
-        $css = file_get_contents('./public/s/css/style.css');
-        $data = array(
-            'input' =&gt; $css,
-        );
+        $css = file_get_contents('styles.css');
 
-        // init the request, set some info, send it and finally close it
-        $ch = curl_init($url);
+        // init the request, set various options, and send it
+        $ch = curl_init();
 
-        curl_setopt($ch, CURLOPT_POST, 1);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt_array($ch, [
+            CURLOPT_URL =&gt; $url,
+            CURLOPT_RETURNTRANSFER =&gt; true,
+            CURLOPT_POST =&gt; true,
+            CURLOPT_HTTPHEADER =&gt; ["Content-Type: application/x-www-form-urlencoded"],
+            CURLOPT_POSTFIELDS =&gt; http_build_query([ "input" =&gt; $css ])
+        ]);
 
         $minified = curl_exec($ch);
 
+        // finally, close the request
         curl_close($ch);
 
-        // output the $minified
+        // output the $minified css
         echo $minified;
     ?&gt;
+
+  p Thanks to Boudewijn van Breukelen for an updated version of the above code.
 
   p
     | Also, Toni Almeida has made a PHP library to easily talk to CSS Minifier : 
