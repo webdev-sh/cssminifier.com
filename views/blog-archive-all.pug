@@ -6,7 +6,7 @@ block blogcontent
 
   for year in Object.keys(blog.archive).sort().reverse()
     for month in Object.keys(blog.archive[year]).sort().reverse()
-      h3 #{blog.archive[year][month][0].meta.moment.format("MMM YYYY")}
+      h3= blog.archive[year][month][0].meta.moment.format("MMM YYYY")
       ul
         for l_post in blog.archive[year][month]
           li #{l_post.meta.moment.format("DD MMM YYYY")} - 
