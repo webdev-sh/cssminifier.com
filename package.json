@@ -19,5 +19,6 @@
     "serve-favicon": "^2.4.5",
     "zid": "^0.2.0"
   },
-  "license": "Copyright 2013 Apps Attic Ltd. All Rights Reserved."
+  "author": "Andrew Chilton (https://chilts.org/) @andychilton",
+  "license": "ISC"
 }
