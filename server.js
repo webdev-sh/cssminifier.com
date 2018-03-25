@@ -11,6 +11,9 @@
 // core
 const http = require('http')
 
+// local
+const app = require('./lib/app.js')
+
 // --------------------------------------------------------------------------------------------------------------------
 // setup
 
@@ -26,15 +29,13 @@ function log() {
   console.log.apply(console, args)
 }
 
-var app = require('./lib/app.js')
-
-var server = http.createServer()
+const server = http.createServer()
 server.on('request', app)
 
-var port = 8011
+const port = process.env.PORT || 8011
 server.listen(port, function() {
   log('Listening on port %s', port)
-});
+})
 
 // every 10 mins, print memory usage
 setInterval(function() {
