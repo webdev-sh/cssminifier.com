@@ -6,10 +6,12 @@ html(lang="en")
     meta(name="viewport",content="width=device-width, initial-scale=1.0")
     meta(
       name="description",
-      content="Online CSS Minifier/Compressor. Free! Works with Media Queries. Provides an API. Simple Quick and Fast!")
+      content=pkg.description
+    )
     meta(
       name="keywords",
-      content="css, cssminifier, css minifier, css minification, css minify, minify css, minified css, compress css, design, css3, web, html, javascript, web development, hosting")
+      content="css, cssminifier, css minifier, css minification, css minify, minify css, minified css, compress css, design, css3, web, html, javascript, web development, hosting"
+    )
     meta(name="author",content="Andrew Chilton, @andychilton")
     link(rel="shortcut icon",href="/favicon.ico")
 
@@ -38,7 +40,7 @@ html(lang="en")
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          a.navbar-brand(href="/") cssminifier.com
+          a.navbar-brand(href="/")= pkg.name
         .collapse.navbar-collapse
           ul.nav.navbar-nav
             li
@@ -85,7 +87,7 @@ html(lang="en")
 
     div#footer
       div.container
-        a(href="/") CSS Minifier
+        a(href="/")= pkg.title
         |  - By 
         a(href="https://chilts.org/") chilts
         |  - 

@@ -1,5 +1,6 @@
 {
-  "name": "com-cssminifier",
+  "name": "cssminifier.com",
+  "title": "CSS Minifier",
   "description": "Online CSS Minifier/Compressor. Free! Provides an API. Simple Quick and Fast.",
   "version": "0.3.0",
   "private": true,
