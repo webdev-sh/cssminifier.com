@@ -11,6 +11,9 @@
 // core
 const http = require('http')
 
+// npm
+const LogFmtr = require('logfmtr')
+
 // local
 const app = require('./lib/app.js')
 
@@ -19,31 +22,31 @@ const app = require('./lib/app.js')
 
 process.title = 'cssminifier.com'
 
-const memUsageEverySecs = process.env.NODE_ENV === 'production' ? 10 * 60 : 30
+const log = new LogFmtr()
+
+// every so often, print memory usage
+var memUsageEverySecs = process.env.NODE_ENV === 'production' ? 10 * 60 : 30
+setInterval(() => {
+  log.withFields(process.memoryUsage()).debug('memory')
+}, memUsageEverySecs * 1000)
 
 // --------------------------------------------------------------------------------------------------------------------
-
-function log() {
-  const args = Array.prototype.slice.call(arguments)
-  args[0] = (new Date()).toISOString() + ' - ' + args[0]
-  console.log.apply(console, args)
-}
+// server
 
 const server = http.createServer()
 server.on('request', app)
 
 const port = process.env.PORT || 8011
 server.listen(port, function() {
-  log('Listening on port %s', port)
+  log.withFields({ port }).info('server-started')
 })
 
-// every so often, print memory usage
-setInterval(() => {
-  const mem     = process.memoryUsage()
-  mem.rss       = Math.floor(mem.rss/1024/1024) + 'MB'
-  mem.heapTotal = Math.floor(mem.heapTotal/1024/1024) + 'MB'
-  mem.heapUsed  = Math.floor(mem.heapUsed/1024/1024) + 'MB'
-  log('Memory: rss=%s, heapUsed=%s, heapTotal=%s', mem.rss, mem.heapUsed, mem.heapTotal)
-}, memUsageEverySecs * 1000)
+process.on('SIGTERM', () => {
+  log.info('sigterm')
+  server.close(() => {
+    log.info('exiting')
+    process.exit(0)
+  })
+})
 
 // --------------------------------------------------------------------------------------------------------------------

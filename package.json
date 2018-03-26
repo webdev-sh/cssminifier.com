@@ -11,6 +11,7 @@
     "connect-blog": "^1.6.0",
     "express": "^4.16.2",
     "log2": "^0.1.1",
+    "logfmtr": "^1.0.1",
     "md5-file": "^3.2.3",
     "moment": "^2.20.1",
     "morgan": "^1.9.0",
@@ -18,7 +19,7 @@
     "redis": "^2.8.0",
     "rustle": "^0.3.1",
     "serve-favicon": "^2.4.5",
-    "zid": "^0.2.0"
+    "yid": "^1.0.0"
   },
   "author": "Andrew Chilton (https://chilts.org/) @andychilton",
   "license": "ISC"
