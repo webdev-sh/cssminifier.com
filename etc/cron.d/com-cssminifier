@@ -1,6 +1,0 @@
-MAILTO=andychilton@gmail.com
-
-# mins hour dofm mnth dofw   user          command
-# ---- ---- ---- ---- ----   -----------   ----------------------------------------------------------------------------
-  */10    *    *    *    *   chilts        cd /var/lib/com-cssminifier/ && find . -name '*.min.css' -mmin +10 -exec basename {} '.min.css' ';' | perl -ne 'chomp; print "$_.css\n"; print "$_.min.css\n";' | xargs --no-run-if-empty rm
-# ---- ---- ---- ---- ----   -----------   ----------------------------------------------------------------------------
