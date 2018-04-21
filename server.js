@@ -1,28 +1,19 @@
 // --------------------------------------------------------------------------------------------------------------------
-//
-// server.js - the server for cssminifier.com
-//
-// Copyright 2013 AppsAttic Ltd, http://appsattic.com/
-//
-// --------------------------------------------------------------------------------------------------------------------
 
 "use strict"
 
 // core
 const http = require('http')
 
-// npm
-const LogFmtr = require('logfmtr')
-
 // local
+const pkg = require('./package.json')
+const log = require('./lib/log.js')
 const app = require('./lib/app.js')
 
 // --------------------------------------------------------------------------------------------------------------------
 // setup
 
-process.title = 'cssminifier.com'
-
-const log = new LogFmtr()
+process.title = pkg.name
 
 // every so often, print memory usage
 var memUsageEverySecs = process.env.NODE_ENV === 'production' ? 10 * 60 : 30
@@ -37,7 +28,7 @@ const server = http.createServer()
 server.on('request', app)
 
 const port = process.env.PORT || 8011
-server.listen(port, function() {
+server.listen(port, () => {
   log.withFields({ port }).info('server-started')
 })
 
