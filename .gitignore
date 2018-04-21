@@ -1,6 +1,6 @@
-node_modules/
+public/s/css/*.min.css
+public/s/js/*.min.js
+
+/node_modules/
 *.log
 *~
-
-public/s/css/style.min.css
-public/s/js/ready.min.js
