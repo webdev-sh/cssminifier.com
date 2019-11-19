@@ -17,7 +17,7 @@ block content
     sub minify{
         my ($css) = @_;
 
-        my $css_min_url = "https://cssminifier.com/raw";
+        my $css_min_url = "#{env.baseUrl}/raw";
 
         my $ua = LWP::UserAgent->new;
         my $request = POST($css_min_url, [ 'input' => $css ]);

@@ -4,9 +4,9 @@ block content
   h3.muted Wget
   pre.
     # minifying some CSS
-    wget --post-data='input=p { color : red; }' --output-document=- https://cssminifier.com/raw
+    wget --post-data='input=p { color : red; }' --output-document=- #{env.baseUrl}/raw
 
     # minifying a CSS file (e.g. style.css -> style.min.css)
-    wget --post-data="input=`cat style.css`" --output-document=style.min.css https://cssminifier.com/raw
+    wget --post-data="input=`cat style.css`" --output-document=style.min.css #{env.baseUrl}/raw
 
   include ./language-footer

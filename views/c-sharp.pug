@@ -9,7 +9,7 @@ block content
   pre.
     public static class CssMinifier
     {
-        private const string URL_CSS_MINIFIER       = "https://cssminifier.com/raw";
+        private const string URL_CSS_MINIFIER       = "#{env.baseUrl}/raw";
         private const string POST_PAREMETER_NAME    = "input";
 
         public static async Task&lt;String&gt; MinifyCss(string inputCss)
@@ -47,7 +47,7 @@ block content
   p Thanks to Juan Herrera for contributing this example.
 
   pre.
-    HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://cssminifier.com/raw");
+    HttpWebRequest request = (HttpWebRequest)WebRequest.Create("#{env.baseUrl}/raw");
     request.Method = "POST";
     string formContent = "input=" + cssContent.Text;
     byte[] byteArray = Encoding.UTF8.GetBytes(formContent);

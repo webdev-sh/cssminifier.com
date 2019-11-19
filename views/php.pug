@@ -6,7 +6,7 @@ block content
   pre.
     &lt;?php
         // setup the URL and read the CSS from a file
-        $url = 'https://cssminifier.com/raw';
+        $url = '#{env.baseUrl}/raw';
         $css = file_get_contents('styles.css');
 
         // init the request, set various options, and send it

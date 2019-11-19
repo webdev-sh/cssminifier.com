@@ -4,9 +4,9 @@ block content
   h3.muted Curl
   pre.
     # minifying some CSS
-    curl -X POST -s --data-urlencode 'input=p { color : red; }' https://cssminifier.com/raw
+    curl -X POST -s --data-urlencode 'input=p { color : red; }' #{env.baseUrl}/raw
 
     # minifying a CSS file (e.g. style.css -> style.min.css)
-    curl -X POST -s --data-urlencode 'input@style.css' https://cssminifier.com/raw > style.min.css
+    curl -X POST -s --data-urlencode 'input@style.css' #{env.baseUrl}/raw > style.min.css
 
   include ./language-footer

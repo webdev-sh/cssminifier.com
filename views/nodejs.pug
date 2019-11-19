@@ -14,7 +14,7 @@ block content
     var req = http.request(
         {
             method   : 'POST',
-            hostname : 'cssminifier.com',
+            hostname : '#{env.baseUrl}',
             path     : '/raw',
         },
         function(resp) {
