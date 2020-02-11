@@ -1,0 +1,75 @@
+extends layout
+
+block content
+
+  h3.muted Swift
+
+  p Thanks to [Mark Malström](https://github.com/markmals) for this contribution.
+
+  pre.
+    import Foundation
+    import Combine
+
+    enum CodeType {
+        case javaScript
+        case css
+
+        var url: URL {
+            switch self {
+            case .javaScript: return URL(string: &quot;https://javascript-minifier.com/raw&quot;)!
+            case .css: return URL(string: &quot;https://cssminifier.com/raw&quot;)!
+            }
+        }
+    }
+
+    func minify(code: String, of type: CodeType) -> AnyPublisher<String, Error> {
+        let value = &quot;input=\(code)&quot;
+
+        var request = URLRequest(url: type.url)
+        request.httpMethod = &quot;POST&quot;
+        request.setValue(&quot;application/x-www-form-urlencoded&quot;, forHTTPHeaderField: &quot;Content-Type&quot;)
+        request.httpBody = value.data(using: .utf8)
+
+        return URLSession.shared.dataTaskPublisher(for: request)
+            .tryMap { output -> String in
+                guard let httpResponse = output.response as? HTTPURLResponse,
+                      (200...299).contains(httpResponse.statusCode) else {
+                        throw URLError(.badServerResponse)
+                }
+
+                guard let string = String(data: output.data, encoding: .utf8) else {
+                    throw URLError(.badServerResponse)
+                }
+
+                return string
+            }
+            .eraseToAnyPublisher()
+    }
+
+    // Usage JS
+
+    var cancellables: Set<AnyCancellable> = []
+
+    let js = &quot;&quot;&quot;
+        console.log( 1 );
+    &quot;&quot;&quot;
+
+    minify(code: js, of: .javaScript)
+        .assertNoFailure()
+        .sink { print($0) }
+        .store(in: &amp;cancellables)
+
+    // Usage CSS
+
+    let css = &quot;&quot;&quot;
+        .red {
+            color: #ff0000;
+        }
+    &quot;&quot;&quot;
+
+    minify(code: css, of: .css)
+        .assertNoFailure()
+        .sink { print($0) }
+        .store(in: &amp;cancellables)
+
+  include ./language-footer
