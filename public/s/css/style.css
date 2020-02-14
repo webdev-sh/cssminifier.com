@@ -20,6 +20,14 @@ body {
     margin-top: 10px;
 }
 
+img {
+    display: block;
+    margin: 24px 0;
+    padding: 16px;
+    background-color: #eee;
+    border: 1px solid #999;
+}
+
 /* ------------------------------------------------------------------------- */
 
 /* footer */
