@@ -4,6 +4,20 @@
   "description": "Online CSS Minifier/Compressor. Free! Provides an API. Simple Quick and Fast.",
   "version": "0.3.0",
   "private": true,
+  "homepage": "https://cssminifier.com",
+  "bugs": {
+    "url": "https://github.com/webdev-sh/cssminifier.com/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/webdev-sh/cssminifier.com.git"
+  },
+  "scripts": {
+    "dev": "nodemon server.js",
+    "build": "npm run tailwind && make build",
+    "tailwind": "tailwind build src/public/s/css/main.css --output public/s/css/main.css",
+    "test": "standard"
+  },
   "dependencies": {
     "body-parser": "^1.19.0",
     "clean-css": "^4.2.1",
@@ -20,6 +34,11 @@
     "rustle": "^0.3.1",
     "serve-favicon": "^2.5.0",
     "yid": "^1.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2",
+    "standard": "^14.3.1",
+    "tailwindcss": "^1.2.0"
   },
   "author": {
     "name": "Andrew Chilton",

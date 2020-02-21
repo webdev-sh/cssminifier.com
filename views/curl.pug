@@ -1,7 +1,7 @@
 extends layout
 
 block content
-  h3.muted Curl
+  h3 Curl
   pre.
     # minifying some CSS
     curl -X POST -s --data-urlencode 'input=p { color : red; }' #{env.baseUrl}/raw
@@ -9,4 +9,4 @@ block content
     # minifying a CSS file (e.g. style.css -> style.min.css)
     curl -X POST -s --data-urlencode 'input@style.css' #{env.baseUrl}/raw > style.min.css
 
-  include ./language-footer
+  include ./include/languages.pug

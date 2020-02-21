@@ -1,7 +1,7 @@
 extends layout
 
 block content
-  h3.muted Curl
+  h3 Curl
   pre.
     # minifying some CSS
     curl -X POST -s --data-urlencode 'input=p { color : red; }' #{env.baseUrl}/raw
@@ -9,7 +9,7 @@ block content
     # minifying a CSS file (e.g. style.css -> style.min.css)
     curl -X POST -s --data-urlencode 'input@style.css' #{env.baseUrl}/raw > style.min.css
 
-  h3.muted Node.js
+  h3 Node.js
   pre.
     var querystring = require('querystring');
     var http  = require('http');
@@ -41,7 +41,7 @@ block content
     req.setHeader('Content-Length', query.length);
     req.end(query, 'utf8');
 
-  h3.muted PHP
+  h3 PHP
   pre.
     &lt;?php
         // setup the URL, the CSS and the form data
@@ -71,7 +71,7 @@ block content
     a(href="https://github.com/promatik/PHP-JS-CSS-Minifier") https://github.com/promatik/PHP-JS-CSS-Minifier
     | .
 
-  h3.muted Perl
+  h3 Perl
   p Thanks to Boris Kotyrev (I've adapted what he sent to be more minimal).
   pre.
     use strict;
@@ -95,14 +95,14 @@ block content
 
     print minify($css, "\n");
 
-  h3.muted LWP Request
+  h3 LWP Request
   pre.
     $ lwp-request -m POST #{env.baseUrl}/raw
     Please enter content (application/x-www-form-urlencoded) to be POSTed:
     input=p%20{%20color:%20white;%20}
     ^D
 
-  h3.muted More Languages
+  h3 More Languages
 
   p.
     I'd love to add more examples in your favourite programming language, so feel free to send them my way. andychilton

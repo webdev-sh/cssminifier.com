@@ -1,0 +1,124 @@
+/* ------------------------------------------------------------------------- */
+/* From : https://tailwindcss.com/docs/functions-and-directives#tailwind */
+
+/* purgecss start ignore */
+
+/**
+ * This injects Tailwind's base styles and any base styles registered by
+ * plugins.
+ */
+@tailwind base;
+
+/**
+ * This injects Tailwind's component classes and any component classes
+ * registered by plugins.
+ */
+@tailwind components;
+
+/* purgecss end ignore */
+
+/* ------------------------------------------------------------------------- */
+/* Components */
+/* https://tailwindcss.com/docs/extracting-components#extracting-css-components-with-apply */
+
+body {
+    @apply bg-gray-100 leading-normal tracking-normal text-gray-800 font-sans;
+    font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+h1, h2, h3, h4, h5, h6 {
+    @apply mt-0 mb-3 font-serif;
+    font-family: Raleway, Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+h1 {
+    @apply text-5xl;
+}
+
+h2 {
+    @apply text-4xl;
+}
+
+h3 {
+    @apply text-3xl;
+}
+
+h4 {
+    @apply text-2xl;
+}
+
+h5 {
+    @apply text-xl;
+}
+
+h6 {
+    @apply text-lg;
+}
+
+p, pre, blockquote {
+    @apply mb-4;
+}
+
+a {
+    @apply text-blue-600;
+}
+
+pre {
+    @apply p-6 border-gray-800 bg-gray-300;
+}
+
+code {
+    @apply border border-teal-300 bg-teal-100 px-2;
+}
+
+/* Buttons */
+
+.btn {
+    @apply font-bold py-2 px-4 rounded mr-1;
+}
+
+.btn-primary {
+    @apply bg-blue-500 text-white;
+}
+
+.btn-primary:hover {
+    @apply bg-blue-700;
+}
+
+.btn-secondary {
+    @apply bg-teal-500 text-white;
+}
+
+.btn-secondary:hover {
+    @apply bg-teal-700;
+}
+
+.btn:disabled, .btn-primary:hover:disabled, .btn-secondary:hover:disabled {
+    @apply text-gray-700 bg-gray-300 cursor-not-allowed;
+}
+
+/* Vue.js */
+
+[v-cloak] {
+    display: none;
+}
+
+/* ------------------------------------------------------------------------- */
+/* From : https://tailwindcss.com/docs/functions-and-directives#tailwind */
+
+/**
+ * This injects Tailwind's utility classes and any utility classes registered
+ * by plugins.
+ */
+@tailwind utilities;
+
+/**
+ * Use this directive to control where Tailwind injects the responsive
+ * variations of each utility.
+ *
+ * If omitted, Tailwind will append these classes to the very end of
+ * your stylesheet by default.
+ */
+@tailwind screens;
+
+/* ------------------------------------------------------------------------- */

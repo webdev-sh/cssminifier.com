@@ -2,7 +2,7 @@ extends layout
 
 block content
 
-  h3.muted Python
+  h3 Python
 
   p Credits: Thanks to Cristian Tomatis for contributing this example.
 
@@ -15,7 +15,7 @@ block content
 
     print response.text
 
-  h3.muted Python - from the REPL
+  h3 Python - from the REPL
 
   p Credits: Thanks to Noam Yorav-Raphael for contributing this example.
 
@@ -24,7 +24,7 @@ block content
     >>> requests.post('#{env.baseUrl}/raw', data=dict(input='p { color : red; }')).text
     'p{color:red}'
 
-  h3.muted Python - a CLI tool
+  h3 Python - a CLI tool
 
   p Credits: Thanks to Kyle S. for contributing this to the site.
 
@@ -57,4 +57,4 @@ block content
 
     print("Minification complete. See {}".format(m.name))
 
-  include ./language-footer
+  include ./include/languages.pug

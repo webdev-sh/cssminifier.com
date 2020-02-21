@@ -2,11 +2,11 @@ extends layout
 
 block content
 
-  h3.muted LWP Request
+  h3 LWP Request
   pre.
     $ lwp-request -m POST #{env.baseUrl}/raw
     Please enter content (application/x-www-form-urlencoded) to be POSTed:
     input=p%20{%20color:%20white;%20}
     ^D
 
-  include ./language-footer
+  include ./include/languages.pug

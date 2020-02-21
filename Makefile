@@ -19,6 +19,9 @@ test-remote:
 	curl -X POST -s --data-urlencode 'input@test/causes-error.css'  http://cssminifier.com/raw > test/causes-error.min.css
 	curl -X POST -s --data-urlencode 'input@test/infinite-loop.css' http://cssminifier.com/raw > test/infinite-loop.min.css
 
+build:
+	cleancss -o public/s/css/main.min.css public/s/css/main.css
+
 open-digital-ocean-referrals:
 	xdg-open https://cloud.digitalocean.com/settings/referrals
 

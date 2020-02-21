@@ -2,7 +2,10 @@ extends layout
 
 block content
 
-  h3.muted Node.js
+  h3 Node.js
+
+  p Using just core packages (no packages from npm):
+
   pre.
     var querystring = require('querystring');
     var http  = require('http');
@@ -34,4 +37,4 @@ block content
     req.setHeader('Content-Length', query.length);
     req.end(query, 'utf8');
 
-  include ./language-footer
+  include ./include/languages.pug

@@ -2,9 +2,14 @@ extends layout
 
 block content
 
-  h3.muted Swift
+  h3 Swift
 
-  p Thanks to [Mark Malström](https://github.com/markmals) for this contribution.
+  p
+    | Thanks to
+    |
+    a(href="https://github.com/markmals") Mark Malström
+    |
+    | for this contribution.
 
   pre.
     import Foundation
@@ -72,4 +77,4 @@ block content
         .sink { print($0) }
         .store(in: &amp;cancellables)
 
-  include ./language-footer
+  include ./include/languages.pug
