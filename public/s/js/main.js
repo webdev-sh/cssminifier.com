@@ -3,7 +3,7 @@ const vm = new Vue({
 
   data: {
     action: '/minify', // or '/download' or '/raw'
-    input: '.c { color: #ff0000; }',
+    input: '',
     output: null,
   },
 
