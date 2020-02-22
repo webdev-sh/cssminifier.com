@@ -51,7 +51,7 @@ html(lang="en")
           h1= pkg.title
           h3= pkg.description
           p Written and hosted by <a href="https://chilts.org/">Andrew Chilton</a> (<a href="https://twitter.com/andychilton">@andychilton</a>) since 2009.
-        div
+        div.p-6
           if env.nodeEnv === 'production' && env.carbonServe && env.carbonPlacement
             script(
               async
