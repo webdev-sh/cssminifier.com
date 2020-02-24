@@ -1,6 +1,6 @@
 # cssminifier.com #
 
-Simple, Quick and Fast!
+Online CSS Minifier/Compressor. Free! Provides an API. Simple Quick and Fast.
 
 ## Why Apache 2.0 ##
 
@@ -9,7 +9,7 @@ licenses.
 
 ## License ##
 
-Copyright 2012 Andrew Chilton <andychilton@gmail.com>
+Copyright 2009 Andrew Chilton <andychilton@gmail.com>
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
