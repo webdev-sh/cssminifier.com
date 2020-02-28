@@ -47,12 +47,12 @@ html(lang="en")
 
     .container.mx-auto
 
-      .flex.justify-between
-        div
+      div(class="md:flex")
+        div(class="md:w-2/3")
           h1= pkg.title
           h3= pkg.description
           p Written and hosted by <a href="https://chilts.org/">Andrew Chilton</a> (<a href="https://twitter.com/andychilton">@andychilton</a>) since 2009.
-        div.p-6
+        div.p-6(class="md:w-1/3")
           if env.nodeEnv === 'production' && env.carbonServe && env.carbonPlacement
             script(
               async
