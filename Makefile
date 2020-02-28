@@ -1,4 +1,9 @@
-all:
+all: build
+
+build:
+	npm ci
+	npm run build
+	npm ci --production
 
 test:
 	curl -X POST -s --data-urlencode 'input@test/calc.css'          http://localhost:8011/raw > test/calc.min.css
@@ -16,7 +21,7 @@ test-remote:
 	curl -X POST -s --data-urlencode 'input@test/causes-error.css'  http://cssminifier.com/raw > test/causes-error.min.css
 	curl -X POST -s --data-urlencode 'input@test/infinite-loop.css' http://cssminifier.com/raw > test/infinite-loop.min.css
 
-build:
-	cleancss -o public/s/css/main.min.css public/s/css/main.css
+clean:
+	rm -f public/s/css/main.css public/s/css/main.min.css public/s/js/main.min.js
 
-.PHONY: server test clean
+.PHONY: build test clean

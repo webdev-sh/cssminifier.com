@@ -14,7 +14,7 @@
   },
   "scripts": {
     "dev": "nodemon server.js",
-    "build": "npm run tailwind && make build",
+    "build": "npm run tailwind",
     "tailwind": "tailwind build src/public/s/css/main.css --output public/s/css/main.css",
     "test": "standard"
   },
