@@ -46,10 +46,9 @@ const vm = new Vue({
       })
         .then(function (resp) {
           vm.output = resp.data
-          console.log(resp)
         })
         .catch(function (err) {
-          console.log(err)
+          // console.log(err)
         })
     },
 

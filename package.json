@@ -24,11 +24,11 @@
     "compression": "^1.7.4",
     "connect-content": "^0.8.0",
     "express": "^4.17.1",
-    "log2": "^0.1.1",
     "logfmtr": "^1.10.1",
     "md5-file": "^3.2.3",
     "moment": "^2.24.0",
     "morgan": "^1.9.1",
+    "ms": "^2.1.2",
     "pug": "^2.0.4",
     "redis": "^2.8.0",
     "rustle": "^0.3.1",
@@ -47,5 +47,22 @@
     "twitter": "https://twitter.com/andychilton",
     "github": "https://github.com/chilts"
   },
+  "keywords": [
+    "css",
+    "cssminifier",
+    "css minifier",
+    "css minification",
+    "css minify",
+    "minify css",
+    "minified css",
+    "compress css",
+    "design",
+    "css3",
+    "web",
+    "html",
+    "javascript",
+    "web development",
+    "hosting"
+  ],
   "license": "Apache-2.0"
 }

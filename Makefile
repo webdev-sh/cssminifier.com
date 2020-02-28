@@ -1,8 +1,5 @@
 all:
 
-server:
-	NODE_ENV=development supervisor --no-restart-on error -- server.js
-
 test:
 	curl -X POST -s --data-urlencode 'input@test/calc.css'          http://localhost:8011/raw > test/calc.min.css
 	curl -X POST -s --data-urlencode 'input@test/import.css'        http://localhost:8011/raw > test/import.min.css
@@ -21,14 +18,5 @@ test-remote:
 
 build:
 	cleancss -o public/s/css/main.min.css public/s/css/main.css
-
-open-digital-ocean-referrals:
-	xdg-open https://cloud.digitalocean.com/settings/referrals
-
-open-dnsimple-account:
-	xdg-open https://dnsimple.com/account
-
-clean:
-	find . -name '*~' -exec rm {} ';'
 
 .PHONY: server test clean

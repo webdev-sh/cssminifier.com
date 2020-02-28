@@ -4,6 +4,7 @@
 
 // core
 const http = require('http')
+const ms = require('ms')
 
 // local
 const pkg = require('./lib/pkg.js')
@@ -16,10 +17,10 @@ const app = require('./lib/app.js')
 process.title = pkg.name
 
 // every so often, print memory usage
-var memUsageEverySecs = process.env.NODE_ENV === 'production' ? 10 * 60 : 30
+var memUsageEveryMs = process.env.NODE_ENV === 'production' ? ms('10 mins') : ms('30s')
 setInterval(() => {
   log.withFields(process.memoryUsage()).debug('memory')
-}, memUsageEverySecs * 1000)
+}, memUsageEveryMs)
 
 // ----------------------------------------------------------------------------
 // server
