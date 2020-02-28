@@ -13,7 +13,9 @@
     "url": "https://github.com/webdev-sh/cssminifier.com.git"
   },
   "scripts": {
-    "dev": "nodemon server.js",
+    "dev": "concurrently --names 'server,tailwind' npm:dev-server npm:dev-tailwind",
+    "dev-server": "nodemon server.js",
+    "dev-tailwind": "nodemon --watch src/public/s/css/main.css --watch tailwind.config.js --exec 'npm run tailwind'",
     "build": "npm run tailwind",
     "tailwind": "tailwind build src/public/s/css/main.css --output public/s/css/main.css",
     "test": "standard"
@@ -36,6 +38,7 @@
     "yid": "^1.1.0"
   },
   "devDependencies": {
+    "concurrently": "^5.1.0",
     "nodemon": "^2.0.2",
     "standard": "^14.3.1",
     "tailwindcss": "^1.2.0"
