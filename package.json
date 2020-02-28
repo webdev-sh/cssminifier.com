@@ -2,7 +2,7 @@
   "name": "cssminifier.com",
   "title": "CSS Minifier",
   "description": "Online CSS Minifier/Compressor. Free! Provides an API. Simple Quick and Fast.",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "private": true,
   "homepage": "https://cssminifier.com",
   "bugs": {
