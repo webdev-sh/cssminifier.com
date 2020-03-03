@@ -72,7 +72,7 @@ a {
 }
 
 pre {
-    @apply p-4 bg-gray-300 border-0 border-l-4 border-teal-300;
+    @apply p-4 bg-gray-300 border-0 border-l-4 border-teal-300 overflow-x-auto;
 }
 
 code {
