@@ -4,6 +4,19 @@ block content
 
   h3 Rust
 
+  pre.
+    // Add `reqwest = { version = "0.10", features = ["blocking"] }` to [dependencies]
+    fn main() {
+        let client = reqwest::blocking::Client::new();
+        let resp = client.post("https://cssminifier.com/raw")
+            .form(&[("input", "p { color : red; }")])
+            .send().unwrap()
+            .text().unwrap();
+        assert_eq!(resp, "p{color:red}", "Failed to minify!");
+        println!("{:?}", resp);
+    }
+
+
   p Help Wanted - If you can help provide a canonical example in Rust, I'd be happy to credit you here. Many thanks.
 
   include ./include/languages.pug
